@@ -59,6 +59,7 @@ struct ContentView: View {
     // fetch isn't duplicated.
     @State private var previousScenePhase: ScenePhase = .active
     @State private var showAbout = false
+    @State private var showDirectorsOfficers = false
 
     var body: some View {
         if !pinManager.isUnlocked {
@@ -152,6 +153,13 @@ struct ContentView: View {
             Spacer()
 
             Button {
+                showDirectorsOfficers = true
+            } label: {
+                Image(systemName: "envelope.circle")
+                    .foregroundColor(KofcColors.gold)
+            }
+
+            Button {
                 showAbout = true
             } label: {
                 Image(systemName: "info.circle")
@@ -169,6 +177,9 @@ struct ContentView: View {
         .background(KofcColors.navy)
         .sheet(isPresented: $showAbout) {
             AboutView(pinManager: pinManager)
+        }
+        .sheet(isPresented: $showDirectorsOfficers) {
+            DirectorsOfficersView()
         }
     }
 }

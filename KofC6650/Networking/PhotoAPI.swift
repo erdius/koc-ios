@@ -3,9 +3,30 @@ import Foundation
 enum PhotoAPI {
     private static let recentPhotosURL = URL(string: "https://koc-photos.erdcloud.org/api/photos")!
     private static let uploadURL = URL(string: "https://koc-photos.erdcloud.org/api/upload")!
+    private static let archiveMonthsURL = URL(string: "https://koc-photos.erdcloud.org/api/photos/archive")!
+    private static let archiveBaseURL = "https://koc-photos.erdcloud.org/api/photos/archive"
 
     static func fetchRecentPhotos() async throws -> [RecentPhotoDto] {
         let (data, response) = try await URLSession.shared.data(from: recentPhotosURL)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+        return try JSONDecoder().decode([RecentPhotoDto].self, from: data)
+    }
+
+    static func fetchArchiveMonths() async throws -> [ArchiveMonthDto] {
+        let (data, response) = try await URLSession.shared.data(from: archiveMonthsURL)
+        guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+        return try JSONDecoder().decode([ArchiveMonthDto].self, from: data)
+    }
+
+    static func fetchArchivedPhotos(month: String) async throws -> [RecentPhotoDto] {
+        guard let url = URL(string: "\(archiveBaseURL)/\(month)") else {
+            throw URLError(.badURL)
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
             throw URLError(.badServerResponse)
         }

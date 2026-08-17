@@ -8,6 +8,14 @@ struct RecentPhotoDto: Decodable, Identifiable, Hashable {
     let uploadedAt: String?
 }
 
+struct ArchiveMonthDto: Decodable, Identifiable, Hashable {
+    let month: String
+    let label: String
+    let count: Int
+
+    var id: String { month }
+}
+
 struct PhotoUploadFile {
     let data: Data
     let mimeType: String

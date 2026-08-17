@@ -10,7 +10,13 @@ enum GoogleCalendarAPI {
     static func fetchEvents() async throws -> [CalendarEventDto] {
         let isoFormatter = ISO8601DateFormatter()
         isoFormatter.formatOptions = [.withInternetDateTime]
-        let timeMin = isoFormatter.string(from: Date())
+        // Start of today, not the current moment -- Google's API excludes
+        // events whose end time is before timeMin, so using now() here was
+        // dropping events off the list the instant they ended, hours before
+        // midnight. Starting from midnight keeps today's events visible all
+        // day, matching EventDateFormatter.isTodayOrLater's date-only check.
+        let startOfToday = Calendar.current.startOfDay(for: Date())
+        let timeMin = isoFormatter.string(from: startOfToday)
 
         var components = URLComponents(string: "https://www.googleapis.com")!
         components.path = "/calendar/v3/calendars/\(calendarId)/events"
