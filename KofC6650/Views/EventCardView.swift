@@ -39,17 +39,22 @@ struct EventCardView: View {
 
                 addToCalendarButton
             }
-
-            if let calendarStatusMessage {
-                Text(calendarStatusMessage)
-                    .font(.kofc(12))
-                    .foregroundColor(KofcColors.locationText)
-            }
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
+        .alert(
+            "Add to Calendar",
+            isPresented: Binding(
+                get: { calendarStatusMessage != nil },
+                set: { if !$0 { calendarStatusMessage = nil } }
+            )
+        ) {
+            Button("OK") { calendarStatusMessage = nil }
+        } message: {
+            Text(calendarStatusMessage ?? "")
+        }
     }
 
     private var addToCalendarButton: some View {
