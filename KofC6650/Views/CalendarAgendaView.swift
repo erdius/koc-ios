@@ -19,7 +19,7 @@ struct CalendarAgendaView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 12) {
+                    LazyVStack(alignment: .leading, spacing: 12) {
                         Text("Upcoming Events")
                             .font(.kofc(18, weight: .semibold))
                             .foregroundColor(KofcColors.onBackground)

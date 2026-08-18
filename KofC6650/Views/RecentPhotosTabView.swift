@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct RecentPhotosTabView: View {
     let photos: [RecentPhotoDto]
@@ -24,6 +25,17 @@ struct RecentPhotosTabView: View {
     private var displayedErrorMessage: String? { viewingArchive ? archiveErrorMessage : errorMessage }
     private var displayedIsLoading: Bool { viewingArchive && isLoadingArchivePhotos }
 
+    private static let currentMonthFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "MMMM yyyy"
+        f.locale = Locale(identifier: "en_US")
+        return f
+    }()
+
+    private var currentMonthTitle: String {
+        Self.currentMonthFormatter.string(from: Date())
+    }
+
     var body: some View {
         Group {
             if isLoading {
@@ -32,11 +44,18 @@ struct RecentPhotosTabView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack {
-                            Text(selectedMonth?.label ?? "Recent Photos")
-                                .font(.kofc(18, weight: .semibold))
-                                .foregroundColor(KofcColors.onBackground)
+                    LazyVStack(alignment: .leading, spacing: 12) {
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Faith in Action")
+                                    .font(.kofc(14, weight: .bold))
+                                    .foregroundColor(KofcColors.gold)
+                                    .textCase(.uppercase)
+                                    .tracking(1.2)
+                                Text(selectedMonth?.label ?? currentMonthTitle)
+                                    .font(.kofc(18, weight: .semibold))
+                                    .foregroundColor(KofcColors.onBackground)
+                            }
 
                             Spacer()
 
@@ -69,16 +88,9 @@ struct RecentPhotosTabView: View {
 
                         if !ScreenshotMode.isActive {
                             ForEach(displayedPhotos) { photo in
-                                AsyncImage(url: URL(string: photo.imageUrl)) { image in
-                                    image.resizable().scaledToFit()
-                                } placeholder: {
-                                    ProgressView().frame(height: 120)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .background(KofcColors.surface)
-                                .cornerRadius(8)
-                                .contentShape(Rectangle())
-                                .onTapGesture { enlargedPhoto = photo }
+                                PhotoGridThumbnail(photo: photo)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture { enlargedPhoto = photo }
                             }
                         }
                     }
@@ -120,6 +132,75 @@ struct RecentPhotosTabView: View {
                 archiveErrorMessage = "Could not load photos for this month."
             }
         }
+    }
+}
+
+// Plain AsyncImage shows its placeholder forever on failure, not just
+// while loading -- a single transient network hiccup on the thumbnail
+// would strand the user with a permanent spinner. This retries once with
+// the full-size image before giving up, and only then shows a static
+// broken-image icon instead of spinning indefinitely.
+// Shared across all thumbnail cells (not per-view @State) so a cell that
+// gets torn down and recreated -- which LazyVStack does for boundary items
+// as a scroll gesture hovers right at the content edge -- can redisplay an
+// already-loaded image instantly instead of flashing back to a loading
+// placeholder and re-fetching, which is what made scrolling near the last
+// photo feel jittery.
+private let thumbnailImageCache = NSCache<NSString, UIImage>()
+
+private struct PhotoGridThumbnail: View {
+    let photo: RecentPhotoDto
+    // Real WiFi/cellular radios drop the occasional request in ways a
+    // simulator's networking doesn't, and AsyncImage never retries on its
+    // own. This loads the bytes manually (with retries) entirely inside
+    // one @State-driven view whose identity never changes, so the list's
+    // layout stays stable no matter how many retries happen.
+    @State private var uiImage: UIImage?
+    @State private var loadFailed = false
+    private let maxAttempts = 3
+
+    var body: some View {
+        Group {
+            if let uiImage {
+                Image(uiImage: uiImage).resizable().scaledToFit()
+            } else if loadFailed {
+                Image(systemName: "photo")
+                    .foregroundColor(KofcColors.locationText)
+                    .frame(height: 120)
+            } else {
+                ProgressView().frame(height: 120)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(KofcColors.surface)
+        .cornerRadius(8)
+        .task(id: photo.thumbnailUrl) {
+            let key = photo.thumbnailUrl as NSString
+            if let cached = thumbnailImageCache.object(forKey: key) {
+                uiImage = cached
+                return
+            }
+            await loadWithRetry()
+        }
+    }
+
+    private func loadWithRetry() async {
+        guard let url = URL(string: photo.thumbnailUrl) else {
+            loadFailed = true
+            return
+        }
+        for attempt in 0..<maxAttempts {
+            if let (data, _) = try? await URLSession.shared.data(from: url),
+               let image = UIImage(data: data) {
+                thumbnailImageCache.setObject(image, forKey: photo.thumbnailUrl as NSString)
+                uiImage = image
+                return
+            }
+            if attempt < maxAttempts - 1 {
+                try? await Task.sleep(nanoseconds: 700_000_000)
+            }
+        }
+        loadFailed = true
     }
 }
 

@@ -3,6 +3,10 @@ import Foundation
 struct RecentPhotoDto: Decodable, Identifiable, Hashable {
     let id: String
     let imageUrl: String
+    // Resized (max 800px wide) JPEG for grid/list display. Falls back to the
+    // full-size imageUrl server-side for formats the thumbnailer can't
+    // decode (real Apple HEIC), so this is always a valid URL to load.
+    let thumbnailUrl: String
     let caption: String?
     let submittedBy: String?
     let uploadedAt: String?
