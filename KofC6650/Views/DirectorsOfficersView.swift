@@ -20,6 +20,10 @@ struct DirectorsOfficersView: View {
                     ForEach(LeadershipDirectory.directors) { contact in
                         LeadershipRow(contact: contact)
                     }
+                    // Without this, the last row's content can sit flush
+                    // against the sheet's bottom edge/home indicator with
+                    // no breathing room.
+                    Color.clear.frame(height: 16).listRowBackground(Color.clear)
                 }
             }
             .listStyle(.insetGrouped)
