@@ -45,33 +45,41 @@ struct EventCardView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
-        .alert("Add to Calendar", isPresented: $showAddToCalendarConfirm) {
-            Button("Cancel", role: .cancel) {}
-            Button("Add") {
-                Task {
-                    switch await CalendarExporter.addToCalendar(event) {
-                    case .added:
-                        calendarStatusMessage = "Added to your calendar."
-                    case .denied:
-                        calendarStatusMessage = "Calendar access denied. Enable it in Settings to add events."
-                    case .failed:
-                        calendarStatusMessage = "Couldn't add this event to your calendar."
-                    }
-                }
-            }
-        } message: {
-            Text("Add \"\(event.title)\" to your calendar?")
-        }
+        // A single .alert() covering both steps -- confirm, then result --
+        // since SwiftUI can clobber one alert with another when two are
+        // chained on the same view, which silently dropped the confirm step.
         .alert(
             "Add to Calendar",
             isPresented: Binding(
-                get: { calendarStatusMessage != nil },
-                set: { if !$0 { calendarStatusMessage = nil } }
+                get: { showAddToCalendarConfirm || calendarStatusMessage != nil },
+                set: { isPresented in
+                    if !isPresented {
+                        showAddToCalendarConfirm = false
+                        calendarStatusMessage = nil
+                    }
+                }
             )
         ) {
-            Button("OK") { calendarStatusMessage = nil }
+            if showAddToCalendarConfirm {
+                Button("Cancel", role: .cancel) { showAddToCalendarConfirm = false }
+                Button("Add") {
+                    showAddToCalendarConfirm = false
+                    Task {
+                        switch await CalendarExporter.addToCalendar(event) {
+                        case .added:
+                            calendarStatusMessage = "Added to your calendar."
+                        case .denied:
+                            calendarStatusMessage = "Calendar access denied. Enable it in Settings to add events."
+                        case .failed:
+                            calendarStatusMessage = "Couldn't add this event to your calendar."
+                        }
+                    }
+                }
+            } else {
+                Button("OK") { calendarStatusMessage = nil }
+            }
         } message: {
-            Text(calendarStatusMessage ?? "")
+            Text(showAddToCalendarConfirm ? "Add \"\(event.title)\" to your calendar?" : (calendarStatusMessage ?? ""))
         }
     }
 

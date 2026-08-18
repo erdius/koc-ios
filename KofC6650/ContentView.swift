@@ -163,7 +163,9 @@ struct ContentView: View {
                     Text("Recent Photos")
                 }
                 .tag(3)
-                .badge(viewModel.hasNewPhotos ? "•" : "")
+                // An empty string still renders as a dot on newer iOS tab
+                // bar styles -- must be nil, not "", to actually hide it.
+                .badge(viewModel.hasNewPhotos ? "•" : (nil as String?))
             }
             // Without this, a focused text field's keyboard pushes the
             // whole TabView (including the tab bar itself) up the screen
@@ -180,6 +182,14 @@ struct ContentView: View {
         }
         .onChange(of: selectedTab) { newTab in
             if newTab == 3 { viewModel.markPhotosSeen() }
+        }
+        // If photos are still loading when the user first switches to this
+        // tab, markPhotosSeen() above finds an empty list and no-ops -- and
+        // since the tab won't change again on its own, the badge would get
+        // stuck. Catches that by re-checking whenever the photo list itself
+        // updates while already on this tab.
+        .onChange(of: viewModel.recentPhotos) { _ in
+            if selectedTab == 3 { viewModel.markPhotosSeen() }
         }
         .onChange(of: scenePhase) { newPhase in
             defer { previousScenePhase = newPhase }
