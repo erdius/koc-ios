@@ -12,6 +12,15 @@ final class AppViewModel: ObservableObject {
     @Published var photosError: String?
 
     func refresh() async {
+        if ScreenshotMode.isActive {
+            signupEvents = ScreenshotMode.sampleSignupEvents
+            allEvents = ScreenshotMode.sampleAllEvents
+            isLoadingEvents = false
+            recentPhotos = []
+            isLoadingPhotos = false
+            return
+        }
+
         isLoadingEvents = true
         eventsError = nil
         isLoadingPhotos = true

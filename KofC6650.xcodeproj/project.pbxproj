@@ -24,14 +24,27 @@
 		98E05C6BB8F92AB627A4DF22 /* GoogleCalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */; };
 		9A4EBA153220FC049130E41B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D383DAB43E711EF51B770 /* AboutView.swift */; };
 		A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */; };
+		A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8076762FD066321663D4B /* ScreenshotMode.swift */; };
 		AE6C61B01F8229A489F091DE /* EventDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8490C08C37078A2923246 /* EventDateFormatter.swift */; };
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
+		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
 		F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66683575D95351DD69FAAAD0 /* ContentView.swift */; };
 		FA754120F3328405B0D3EBA1 /* CalendarTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921A0260433CE1F5268F71A8 /* CalendarTabView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7AA8318E4FF3A8808D03F0F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D18BF8031E408C731840FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6280DD6E5F1E0C2B7AB4FC8E;
+			remoteInfo = KofC6650;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KofC6650ScreenshotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorsOfficersView.swift; sourceTree = "<group>"; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
 		66683575D95351DD69FAAAD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,9 +61,11 @@
 		A1392280990F72A58F1C4D43 /* KofC6650.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = KofC6650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5F40A5510B132CB6D1CB90 /* LeadershipModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipModels.swift; sourceTree = "<group>"; };
 		B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosTabView.swift; sourceTree = "<group>"; };
+		C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotUITests.swift; sourceTree = "<group>"; };
 		DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofcRepository.swift; sourceTree = "<group>"; };
 		DB81CA9A948706F71F236123 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E5A2E793D417E7EF69195F97 /* CalendarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
+		ECD8076762FD066321663D4B /* ScreenshotMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotMode.swift; sourceTree = "<group>"; };
 		EF3A33F4D61151B582203D49 /* KofC6650App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofC6650App.swift; sourceTree = "<group>"; };
 		F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		F6C8490C08C37078A2923246 /* EventDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateFormatter.swift; sourceTree = "<group>"; };
@@ -62,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				69FEEC399114E989CF7DEAA6 /* KofC6650 */,
+				DA189F7AB9CAAE9AE97A078B /* KofC6650ScreenshotUITests */,
 				A346606BC6D3D7BB6D3F1D2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +116,7 @@
 				EF3A33F4D61151B582203D49 /* KofC6650App.swift */,
 				DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */,
 				803FAD5FB7688FA05FA0359F /* PinManager.swift */,
+				ECD8076762FD066321663D4B /* ScreenshotMode.swift */,
 				A4ABCAEB7F2F3193E245733D /* Models */,
 				F829088B9FD335BCB34718A9 /* Networking */,
 				241902A8D4D4079BC27D2D10 /* Theme */,
@@ -112,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A1392280990F72A58F1C4D43 /* KofC6650.app */,
+				001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +142,14 @@
 				F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DA189F7AB9CAAE9AE97A078B /* KofC6650ScreenshotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */,
+			);
+			path = KofC6650ScreenshotUITests;
 			sourceTree = "<group>";
 		};
 		F829088B9FD335BCB34718A9 /* Networking */ = {
@@ -156,6 +182,24 @@
 			productReference = A1392280990F72A58F1C4D43 /* KofC6650.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D2976B4272C5A766446985DC /* KofC6650ScreenshotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8BF72A8659B18DD13990991 /* Build configuration list for PBXNativeTarget "KofC6650ScreenshotUITests" */;
+			buildPhases = (
+				05BE7370130506D867776D28 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAF6DD234453348C8399C972 /* PBXTargetDependency */,
+			);
+			name = KofC6650ScreenshotUITests;
+			packageProductDependencies = (
+			);
+			productName = KofC6650ScreenshotUITests;
+			productReference = 001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,6 +212,11 @@
 					6280DD6E5F1E0C2B7AB4FC8E = {
 						DevelopmentTeam = 2ZE6NLQ8E5;
 						ProvisioningStyle = Automatic;
+					};
+					D2976B4272C5A766446985DC = {
+						DevelopmentTeam = 2ZE6NLQ8E5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6280DD6E5F1E0C2B7AB4FC8E;
 					};
 				};
 			};
@@ -186,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				6280DD6E5F1E0C2B7AB4FC8E /* KofC6650 */,
+				D2976B4272C5A766446985DC /* KofC6650ScreenshotUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +252,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05BE7370130506D867776D28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C87CEDBAFDDA015931A5CFE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,10 +285,19 @@
 				29D1A06758B93887298697F2 /* PinGateView.swift in Sources */,
 				419BB8F3E8D4DCD396BCA0C7 /* PinManager.swift in Sources */,
 				A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */,
+				A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAF6DD234453348C8399C972 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6280DD6E5F1E0C2B7AB4FC8E /* KofC6650 */;
+			targetProxy = 7AA8318E4FF3A8808D03F0F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		01D3E3F96A48D3B2E6846565 /* Debug */ = {
@@ -257,6 +324,27 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		659E03897698F06669DBAA81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.screenshotuitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KofC6650;
 			};
 			name = Debug;
 		};
@@ -406,6 +494,27 @@
 			};
 			name = Debug;
 		};
+		C4A449B920FB912A8545FCEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.screenshotuitests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KofC6650;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -423,6 +532,15 @@
 			buildConfigurations = (
 				01D3E3F96A48D3B2E6846565 /* Debug */,
 				8B27E52961DC236D7763570D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C8BF72A8659B18DD13990991 /* Build configuration list for PBXNativeTarget "KofC6650ScreenshotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				659E03897698F06669DBAA81 /* Debug */,
+				C4A449B920FB912A8545FCEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

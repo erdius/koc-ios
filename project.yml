@@ -27,3 +27,18 @@ targets:
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "Apple Development"
         DEVELOPMENT_TEAM: 2ZE6NLQ8E5
+  KofC6650ScreenshotUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - KofC6650ScreenshotUITests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.erdman.kofc6650.screenshotuitests
+        SWIFT_VERSION: "5.0"
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 2ZE6NLQ8E5
+    dependencies:
+      - target: KofC6650

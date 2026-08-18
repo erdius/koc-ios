@@ -61,21 +61,25 @@ struct RecentPhotosTabView: View {
                             ErrorCardView(message: displayedErrorMessage)
                         }
 
-                        if displayedErrorMessage == nil && !displayedIsLoading && displayedPhotos.isEmpty {
+                        if ScreenshotMode.isActive {
+                            SamplePhotoPlaceholder()
+                        } else if displayedErrorMessage == nil && !displayedIsLoading && displayedPhotos.isEmpty {
                             EmptyStateText(text: viewingArchive ? "No photos for this month." : "No photos yet.")
                         }
 
-                        ForEach(displayedPhotos) { photo in
-                            AsyncImage(url: URL(string: photo.imageUrl)) { image in
-                                image.resizable().scaledToFit()
-                            } placeholder: {
-                                ProgressView().frame(height: 120)
+                        if !ScreenshotMode.isActive {
+                            ForEach(displayedPhotos) { photo in
+                                AsyncImage(url: URL(string: photo.imageUrl)) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                    ProgressView().frame(height: 120)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .background(KofcColors.surface)
+                                .cornerRadius(8)
+                                .contentShape(Rectangle())
+                                .onTapGesture { enlargedPhoto = photo }
                             }
-                            .frame(maxWidth: .infinity)
-                            .background(KofcColors.surface)
-                            .cornerRadius(8)
-                            .contentShape(Rectangle())
-                            .onTapGesture { enlargedPhoto = photo }
                         }
                     }
                     .padding(16)
@@ -116,6 +120,23 @@ struct RecentPhotosTabView: View {
                 archiveErrorMessage = "Could not load photos for this month."
             }
         }
+    }
+}
+
+private struct SamplePhotoPlaceholder: View {
+    var body: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "camera")
+                .font(.system(size: 48))
+                .foregroundColor(KofcColors.gold)
+            Text("Sample Event Photo")
+                .font(.kofc(16, weight: .semibold))
+                .foregroundColor(KofcColors.gold)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 420)
+        .background(KofcColors.navy)
+        .cornerRadius(8)
     }
 }
 
