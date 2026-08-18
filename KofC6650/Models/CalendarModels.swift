@@ -29,7 +29,7 @@ struct CalendarEventDateTime: Decodable {
 
 // App-level normalized model, derived by KofcRepository.
 
-struct EventDto: Identifiable {
+struct EventDto: Identifiable, Codable {
     let id: String
     let title: String
     let date: String        // "yyyy-MM-dd"

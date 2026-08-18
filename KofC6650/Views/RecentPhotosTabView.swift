@@ -100,7 +100,7 @@ struct RecentPhotosTabView: View {
         }
         .background(KofcColors.background)
         .fullScreenCover(item: $enlargedPhoto) { photo in
-            PhotoViewer(url: URL(string: photo.imageUrl)) {
+            PhotoViewer(url: URL(string: photo.mediumUrl)) {
                 enlargedPhoto = nil
             }
         }

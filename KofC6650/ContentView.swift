@@ -10,6 +10,26 @@ final class AppViewModel: ObservableObject {
     @Published var recentPhotos: [RecentPhotoDto] = []
     @Published var isLoadingPhotos = true
     @Published var photosError: String?
+    // Newest photo first (server returns them reverse-chronological), so
+    // comparing just the first id against what was last seen is enough to
+    // know whether anything new has shown up.
+    @Published var hasNewPhotos = false
+    private static let lastSeenPhotoIdKey = "lastSeenPhotoId"
+
+    func markPhotosSeen() {
+        guard let latest = recentPhotos.first?.id else { return }
+        UserDefaults.standard.set(latest, forKey: Self.lastSeenPhotoIdKey)
+        hasNewPhotos = false
+    }
+
+    private func updateHasNewPhotos() {
+        guard let latest = recentPhotos.first?.id else {
+            hasNewPhotos = false
+            return
+        }
+        let lastSeen = UserDefaults.standard.string(forKey: Self.lastSeenPhotoIdKey)
+        hasNewPhotos = latest != lastSeen
+    }
 
     func refresh() async {
         if ScreenshotMode.isActive {
@@ -36,19 +56,41 @@ final class AppViewModel: ObservableObject {
             let council = try await KofcRepository.getCouncilEvents()
             signupEvents = council.signupEvents
             allEvents = council.allEvents
+            OfflineCache.saveEvents(council)
         } catch {
-            eventsError = "Could not load calendar events."
+            if let cached = OfflineCache.loadEvents() {
+                signupEvents = cached.signupEvents
+                allEvents = cached.allEvents
+                eventsError = "Showing saved events from \(Self.relativeSavedAt(OfflineCache.eventsSavedAt)) — couldn't reach the server."
+            } else {
+                eventsError = "Could not load calendar events."
+            }
         }
         isLoadingEvents = false
     }
 
     private func loadPhotos() async {
         do {
-            recentPhotos = try await PhotoAPI.fetchRecentPhotos()
+            let photos = try await PhotoAPI.fetchRecentPhotos()
+            recentPhotos = photos
+            OfflineCache.savePhotos(photos)
         } catch {
-            photosError = "Could not load recent photos."
+            if let cached = OfflineCache.loadPhotos() {
+                recentPhotos = cached
+                photosError = "Showing saved photos from \(Self.relativeSavedAt(OfflineCache.photosSavedAt)) — couldn't reach the server."
+            } else {
+                photosError = "Could not load recent photos."
+            }
         }
         isLoadingPhotos = false
+        updateHasNewPhotos()
+    }
+
+    private static func relativeSavedAt(_ date: Date?) -> String {
+        guard let date else { return "earlier" }
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: date, relativeTo: Date())
     }
 }
 
@@ -121,6 +163,7 @@ struct ContentView: View {
                     Text("Recent Photos")
                 }
                 .tag(3)
+                .badge(viewModel.hasNewPhotos ? "•" : "")
             }
             // Without this, a focused text field's keyboard pushes the
             // whole TabView (including the tab bar itself) up the screen
@@ -134,6 +177,9 @@ struct ContentView: View {
         }
         .task {
             await viewModel.refresh()
+        }
+        .onChange(of: selectedTab) { newTab in
+            if newTab == 3 { viewModel.markPhotosSeen() }
         }
         .onChange(of: scenePhase) { newPhase in
             defer { previousScenePhase = newPhase }

@@ -4,6 +4,7 @@ struct EventCardView: View {
     let event: EventDto
 
     @Environment(\.openURL) private var openURL
+    @State private var calendarStatusMessage: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -27,18 +28,50 @@ struct EventCardView: View {
                     .foregroundColor(KofcColors.onSurfaceVariant)
             }
 
-            // At most one of these ever shows -- mutually exclusive by
-            // construction in KofcRepository.
-            if let signupUrl = event.signupUrl, let url = URL(string: signupUrl) {
-                actionButton(title: "Sign Up to Volunteer →", url: url)
-            } else if let linkUrl = event.linkUrl, let url = URL(string: linkUrl) {
-                actionButton(title: "Open Link →", url: url)
+            HStack(spacing: 8) {
+                // At most one of these ever shows -- mutually exclusive by
+                // construction in KofcRepository.
+                if let signupUrl = event.signupUrl, let url = URL(string: signupUrl) {
+                    actionButton(title: "Sign Up to Volunteer →", url: url)
+                } else if let linkUrl = event.linkUrl, let url = URL(string: linkUrl) {
+                    actionButton(title: "Open Link →", url: url)
+                }
+
+                addToCalendarButton
+            }
+
+            if let calendarStatusMessage {
+                Text(calendarStatusMessage)
+                    .font(.kofc(12))
+                    .foregroundColor(KofcColors.locationText)
             }
         }
         .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
+    }
+
+    private var addToCalendarButton: some View {
+        Button {
+            Task {
+                switch await CalendarExporter.addToCalendar(event) {
+                case .added:
+                    calendarStatusMessage = "Added to your calendar."
+                case .denied:
+                    calendarStatusMessage = "Calendar access denied. Enable it in Settings to add events."
+                case .failed:
+                    calendarStatusMessage = "Couldn't add this event to your calendar."
+                }
+            }
+        } label: {
+            Image(systemName: "calendar.badge.plus")
+                .foregroundColor(KofcColors.gold)
+                .padding(10)
+                .background(KofcColors.navy)
+                .cornerRadius(8)
+        }
+        .padding(.top, 4)
     }
 
     private var dateLine: String {
