@@ -4,6 +4,7 @@ struct EventCardView: View {
     let event: EventDto
 
     @Environment(\.openURL) private var openURL
+    @State private var showAddToCalendarConfirm = false
     @State private var calendarStatusMessage: String?
 
     var body: some View {
@@ -44,6 +45,23 @@ struct EventCardView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
+        .alert("Add to Calendar", isPresented: $showAddToCalendarConfirm) {
+            Button("Cancel", role: .cancel) {}
+            Button("Add") {
+                Task {
+                    switch await CalendarExporter.addToCalendar(event) {
+                    case .added:
+                        calendarStatusMessage = "Added to your calendar."
+                    case .denied:
+                        calendarStatusMessage = "Calendar access denied. Enable it in Settings to add events."
+                    case .failed:
+                        calendarStatusMessage = "Couldn't add this event to your calendar."
+                    }
+                }
+            }
+        } message: {
+            Text("Add \"\(event.title)\" to your calendar?")
+        }
         .alert(
             "Add to Calendar",
             isPresented: Binding(
@@ -59,16 +77,7 @@ struct EventCardView: View {
 
     private var addToCalendarButton: some View {
         Button {
-            Task {
-                switch await CalendarExporter.addToCalendar(event) {
-                case .added:
-                    calendarStatusMessage = "Added to your calendar."
-                case .denied:
-                    calendarStatusMessage = "Calendar access denied. Enable it in Settings to add events."
-                case .failed:
-                    calendarStatusMessage = "Couldn't add this event to your calendar."
-                }
-            }
+            showAddToCalendarConfirm = true
         } label: {
             Image(systemName: "calendar.badge.plus")
                 .foregroundColor(KofcColors.gold)

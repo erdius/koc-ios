@@ -13,8 +13,8 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.erdman.kofc6650
-        MARKETING_VERSION: "1.0.8"
-        CURRENT_PROJECT_VERSION: "3"
+        MARKETING_VERSION: "1.0.9"
+        CURRENT_PROJECT_VERSION: "4"
         SWIFT_VERSION: "5.0"
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
