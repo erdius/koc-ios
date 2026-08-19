@@ -94,9 +94,23 @@ struct RecentPhotosTabView: View {
 
                         if !ScreenshotMode.isActive {
                             ForEach(displayedPhotos) { photo in
-                                PhotoGridThumbnail(photo: photo)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture { enlargedPhoto = photo }
+                                VStack(alignment: .leading, spacing: 4) {
+                                    PhotoGridThumbnail(photo: photo)
+                                        .contentShape(Rectangle())
+                                        .onTapGesture { enlargedPhoto = photo }
+
+                                    if let caption = photo.caption, !caption.isEmpty {
+                                        Text(caption)
+                                            .font(.kofc(13))
+                                            .foregroundColor(KofcColors.onSurfaceVariant)
+                                    }
+
+                                    if let submittedBy = photo.submittedBy, !submittedBy.isEmpty {
+                                        Text("Submitted by \(submittedBy)")
+                                            .font(.kofc(11))
+                                            .foregroundColor(KofcColors.locationText)
+                                    }
+                                }
                             }
                         }
                     }
