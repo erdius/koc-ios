@@ -29,10 +29,14 @@ enum CalendarExporter {
         return f
     }()
 
-    static func addToCalendar(_ event: EventDto) async -> Result {
+    /// slotTime, when provided, overrides the event's own listed time --
+    /// SignUpGenius events often offer several time slots that the Google
+    /// Calendar entry itself has no way to represent, so the user picks
+    /// the one they actually signed up for.
+    static func addToCalendar(_ event: EventDto, slotTime: Date? = nil) async -> Result {
         let granted = await requestAccess()
         guard granted else { return .denied }
-        return save(event)
+        return save(event, slotTime: slotTime)
     }
 
     private static func requestAccess() async -> Bool {
@@ -47,7 +51,7 @@ enum CalendarExporter {
         }
     }
 
-    private static func save(_ event: EventDto) -> Result {
+    private static func save(_ event: EventDto, slotTime: Date?) -> Result {
         guard let day = isoDateFormatter.date(from: event.date) else { return .failed }
 
         let calendar = Calendar(identifier: .gregorian)
@@ -57,7 +61,8 @@ enum CalendarExporter {
         ekEvent.notes = event.description
         ekEvent.calendar = store.defaultCalendarForNewEvents
 
-        if let time = event.time, !time.isEmpty, let parsedTime = timeFormatter.date(from: time) {
+        let parsedTime = slotTime ?? event.time.flatMap { $0.isEmpty ? nil : timeFormatter.date(from: $0) }
+        if let parsedTime {
             let timeComponents = calendar.dateComponents([.hour, .minute], from: parsedTime)
             var startComponents = calendar.dateComponents([.year, .month, .day], from: day)
             startComponents.hour = timeComponents.hour

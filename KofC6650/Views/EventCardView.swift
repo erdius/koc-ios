@@ -4,7 +4,7 @@ struct EventCardView: View {
     let event: EventDto
 
     @Environment(\.openURL) private var openURL
-    @State private var showAddToCalendarConfirm = false
+    @State private var showAddToCalendarSheet = false
     @State private var calendarStatusMessage: String?
     @State private var isGoing: Bool
 
@@ -62,27 +62,17 @@ struct EventCardView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
-        // A single .alert() covering both steps -- confirm, then result --
-        // since SwiftUI can clobber one alert with another when two are
-        // chained on the same view, which silently dropped the confirm step.
-        .alert(
-            "Add to Calendar",
-            isPresented: Binding(
-                get: { showAddToCalendarConfirm || calendarStatusMessage != nil },
-                set: { isPresented in
-                    if !isPresented {
-                        showAddToCalendarConfirm = false
-                        calendarStatusMessage = nil
-                    }
-                }
-            )
-        ) {
-            if showAddToCalendarConfirm {
-                Button("Cancel", role: .cancel) { showAddToCalendarConfirm = false }
-                Button("Add") {
-                    showAddToCalendarConfirm = false
+        // A sheet for the time-slot input step, and a separate alert for
+        // the result -- keeping input and result on different presentation
+        // types avoids the clobbering SwiftUI can do when two .alert()s
+        // are chained on the same view.
+        .sheet(isPresented: $showAddToCalendarSheet) {
+            AddToCalendarSheet(
+                event: event,
+                onAdd: { slotTime in
+                    showAddToCalendarSheet = false
                     Task {
-                        switch await CalendarExporter.addToCalendar(event) {
+                        switch await CalendarExporter.addToCalendar(event, slotTime: slotTime) {
                         case .added:
                             calendarStatusMessage = "Added to your calendar."
                         case .denied:
@@ -91,12 +81,20 @@ struct EventCardView: View {
                             calendarStatusMessage = "Couldn't add this event to your calendar."
                         }
                     }
-                }
-            } else {
-                Button("OK") { calendarStatusMessage = nil }
-            }
+                },
+                onCancel: { showAddToCalendarSheet = false }
+            )
+        }
+        .alert(
+            "Add to Calendar",
+            isPresented: Binding(
+                get: { calendarStatusMessage != nil },
+                set: { if !$0 { calendarStatusMessage = nil } }
+            )
+        ) {
+            Button("OK") { calendarStatusMessage = nil }
         } message: {
-            Text(showAddToCalendarConfirm ? "Add \"\(event.title)\" to your calendar?" : (calendarStatusMessage ?? ""))
+            Text(calendarStatusMessage ?? "")
         }
     }
 
@@ -113,7 +111,7 @@ struct EventCardView: View {
 
     private var addToCalendarButton: some View {
         Button {
-            showAddToCalendarConfirm = true
+            showAddToCalendarSheet = true
         } label: {
             Image(systemName: "calendar.badge.plus")
                 .foregroundColor(KofcColors.gold)
@@ -150,6 +148,76 @@ struct EventCardView: View {
                 .cornerRadius(8)
         }
         .padding(.top, 4)
+    }
+}
+
+/// SignUpGenius events often offer several time slots (e.g. setup, serving,
+/// cleanup) that the underlying Google Calendar entry has no way to
+/// represent -- it only ever carries one time. Rather than guess, this asks
+/// which slot the user actually signed up for before writing the calendar
+/// entry.
+private struct AddToCalendarSheet: View {
+    let event: EventDto
+    let onAdd: (Date) -> Void
+    let onCancel: () -> Void
+
+    @State private var selectedTime: Date
+
+    init(event: EventDto, onAdd: @escaping (Date) -> Void, onCancel: @escaping () -> Void) {
+        self.event = event
+        self.onAdd = onAdd
+        self.onCancel = onCancel
+        _selectedTime = State(initialValue: Self.defaultTime(for: event))
+    }
+
+    private static let timeFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateFormat = "h:mm a"
+        f.locale = Locale(identifier: "en_US")
+        return f
+    }()
+
+    private static func defaultTime(for event: EventDto) -> Date {
+        if let time = event.time, !time.isEmpty, let parsed = timeFormatter.date(from: time) {
+            return parsed
+        }
+        var components = DateComponents()
+        components.hour = 9
+        components.minute = 0
+        return Calendar.current.date(from: components) ?? Date()
+    }
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                Text(event.title)
+                    .font(.kofc(17, weight: .semibold))
+                    .multilineTextAlignment(.center)
+
+                Text("If you signed up for a specific time slot, set it here so it's added to your calendar correctly.")
+                    .font(.kofc(13))
+                    .foregroundColor(KofcColors.locationText)
+                    .multilineTextAlignment(.center)
+
+                DatePicker("Time", selection: $selectedTime, displayedComponents: .hourAndMinute)
+                    .datePickerStyle(.wheel)
+                    .labelsHidden()
+
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Add to Calendar")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel", action: onCancel)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Add") { onAdd(selectedTime) }
+                }
+            }
+        }
+        .presentationDetents([.medium])
     }
 }
 
