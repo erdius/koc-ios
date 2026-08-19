@@ -1,14 +1,35 @@
 import SwiftUI
+import UIKit
 
 struct AboutView: View {
     @ObservedObject var pinManager: PinManager
     @ObservedObject private var fontScale = FontScale.shared
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
 
     private var versionString: String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
         return "Version \(version) (build \(build))"
+    }
+
+    private func reportProblem() {
+        let device = UIDevice.current
+        let body = """
+
+
+        ---
+        \(versionString)
+        \(device.systemName) \(device.systemVersion)
+        \(device.model)
+        """
+        var components = URLComponents(string: "mailto:bird.dog@erdius.net")
+        components?.queryItems = [
+            URLQueryItem(name: "subject", value: "KofC 6650 App - Problem Report"),
+            URLQueryItem(name: "body", value: body),
+        ]
+        guard let url = components?.url else { return }
+        openURL(url)
     }
 
     var body: some View {
@@ -47,6 +68,15 @@ struct AboutView: View {
                     .padding(.horizontal, 24)
                 }
                 .padding(.bottom, 8)
+
+                Button(action: reportProblem) {
+                    Text("Report a Problem")
+                        .foregroundColor(KofcColors.gold)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(KofcColors.navy)
+                        .cornerRadius(8)
+                }
 
                 Button {
                     pinManager.clear()

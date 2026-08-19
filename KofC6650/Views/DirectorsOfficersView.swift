@@ -6,11 +6,6 @@ struct DirectorsOfficersView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("App") {
-                    ForEach(LeadershipDirectory.developer) { contact in
-                        LeadershipRow(contact: contact)
-                    }
-                }
                 Section("Officers") {
                     ForEach(LeadershipDirectory.officers) { contact in
                         LeadershipRow(contact: contact)

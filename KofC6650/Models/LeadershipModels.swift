@@ -15,10 +15,6 @@ struct LeadershipContact: Identifiable {
 /// Vacant seats (Vocations Chairman, Public Relations, Advocate)
 /// intentionally omitted -- nobody to contact.
 enum LeadershipDirectory {
-    static let developer: [LeadershipContact] = [
-        LeadershipContact(name: "David Erdman", title: "Developer", email: "david@erdius.net"),
-    ]
-
     static let officers: [LeadershipContact] = [
         LeadershipContact(name: "Nate Miranda", title: "Grand Knight", email: "grandknight@kofc6650.org"),
         LeadershipContact(name: "David Erdman", title: "Deputy Grand Knight", email: "deputygk@kofc6650.org"),
