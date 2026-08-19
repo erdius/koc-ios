@@ -38,6 +38,7 @@
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
 		D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
+		E794F66228B92F17A23E2DB3 /* AppearanceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
 		F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66683575D95351DD69FAAAD0 /* ContentView.swift */; };
 		FA754120F3328405B0D3EBA1 /* CalendarTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921A0260433CE1F5268F71A8 /* CalendarTabView.swift */; };
@@ -80,6 +81,7 @@
 		131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineCache.swift; sourceTree = "<group>"; };
 		1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofC6650Widget.swift; sourceTree = "<group>"; };
 		2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceMode.swift; sourceTree = "<group>"; };
 		30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorsOfficersView.swift; sourceTree = "<group>"; };
 		3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KofC6650Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */,
+				3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */,
 				980B53EB0BB4324966B91EFB /* Assets.xcassets */,
 				DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */,
 				66683575D95351DD69FAAAD0 /* ContentView.swift */,
@@ -370,6 +373,7 @@
 			files = (
 				9A4EBA153220FC049130E41B /* AboutView.swift in Sources */,
 				D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */,
+				E794F66228B92F17A23E2DB3 /* AppearanceMode.swift in Sources */,
 				056D6CFA69DE54D79282B19C /* CalendarAgendaView.swift in Sources */,
 				23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */,
 				4DFF0160CD24D48D6FF2DEFA /* CalendarModels.swift in Sources */,

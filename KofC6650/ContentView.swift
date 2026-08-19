@@ -124,6 +124,7 @@ struct ContentView: View {
     // -- triggers a full re-render, re-evaluating every Font.kofc(...) call
     // throughout the tree with the new multiplier.
     @ObservedObject private var fontScale = FontScale.shared
+    @ObservedObject private var appearanceMode = AppearanceMode.shared
     @State private var selectedTab = 0
     @Environment(\.scenePhase) private var scenePhase
     // Seeded to .active (not .background) so the very first scenePhase
@@ -137,17 +138,20 @@ struct ContentView: View {
     @State private var showWhatsNew = WhatsNew.shouldShow
 
     var body: some View {
-        if !pinManager.isUnlocked {
-            PinGateView(pinManager: pinManager)
-        } else {
-            mainContent
-                .sheet(isPresented: $showWhatsNew) {
-                    WhatsNewView(onDismiss: {
-                        WhatsNew.markSeen()
-                        showWhatsNew = false
-                    })
-                }
+        Group {
+            if !pinManager.isUnlocked {
+                PinGateView(pinManager: pinManager)
+            } else {
+                mainContent
+                    .sheet(isPresented: $showWhatsNew) {
+                        WhatsNewView(onDismiss: {
+                            WhatsNew.markSeen()
+                            showWhatsNew = false
+                        })
+                    }
+            }
         }
+        .preferredColorScheme(appearanceMode.mode.colorScheme)
     }
 
     private var mainContent: some View {

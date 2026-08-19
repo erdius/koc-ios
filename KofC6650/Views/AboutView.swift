@@ -4,6 +4,7 @@ import UIKit
 struct AboutView: View {
     @ObservedObject var pinManager: PinManager
     @ObservedObject private var fontScale = FontScale.shared
+    @ObservedObject private var appearanceMode = AppearanceMode.shared
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
 
@@ -62,6 +63,21 @@ struct AboutView: View {
                     Picker("Text Size", selection: $fontScale.preset) {
                         ForEach(FontScale.Preset.allCases) { preset in
                             Text(preset.rawValue).tag(preset)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding(.horizontal, 24)
+                }
+                .padding(.bottom, 8)
+
+                VStack(spacing: 8) {
+                    Text("Appearance")
+                        .font(.kofc(14, weight: .semibold))
+                        .foregroundColor(KofcColors.onBackground)
+
+                    Picker("Appearance", selection: $appearanceMode.mode) {
+                        ForEach(AppearanceMode.Mode.allCases) { mode in
+                            Text(mode.rawValue).tag(mode)
                         }
                     }
                     .pickerStyle(.segmented)
