@@ -24,6 +24,8 @@ struct CalendarAgendaView: View {
                             .font(.kofc(18, weight: .semibold))
                             .foregroundColor(KofcColors.onBackground)
 
+                        RsvpLegendView()
+
                         if let errorMessage {
                             ErrorCardView(message: errorMessage)
                         }

@@ -28,6 +28,7 @@
 		A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */; };
 		A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8076762FD066321663D4B /* ScreenshotMode.swift */; };
 		AE6C61B01F8229A489F091DE /* EventDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8490C08C37078A2923246 /* EventDateFormatter.swift */; };
+		AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */; };
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
@@ -63,6 +64,7 @@
 		9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAgendaView.swift; sourceTree = "<group>"; };
 		A1392280990F72A58F1C4D43 /* KofC6650.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = KofC6650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5F40A5510B132CB6D1CB90 /* LeadershipModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipModels.swift; sourceTree = "<group>"; };
+		ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsvpStore.swift; sourceTree = "<group>"; };
 		B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosTabView.swift; sourceTree = "<group>"; };
 		C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotUITests.swift; sourceTree = "<group>"; };
 		DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofcRepository.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */,
 				131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */,
 				803FAD5FB7688FA05FA0359F /* PinManager.swift */,
+				ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */,
 				ECD8076762FD066321663D4B /* ScreenshotMode.swift */,
 				A4ABCAEB7F2F3193E245733D /* Models */,
 				F829088B9FD335BCB34718A9 /* Networking */,
@@ -293,6 +296,7 @@
 				29D1A06758B93887298697F2 /* PinGateView.swift in Sources */,
 				419BB8F3E8D4DCD396BCA0C7 /* PinManager.swift in Sources */,
 				A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */,
+				AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */,
 				A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

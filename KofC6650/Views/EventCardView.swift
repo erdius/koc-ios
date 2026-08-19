@@ -6,42 +6,57 @@ struct EventCardView: View {
     @Environment(\.openURL) private var openURL
     @State private var showAddToCalendarConfirm = false
     @State private var calendarStatusMessage: String?
+    @State private var isGoing: Bool
+
+    init(event: EventDto) {
+        self.event = event
+        _isGoing = State(initialValue: RsvpStore.isGoing(event.id))
+    }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(event.title)
-                .font(.kofc(16, weight: .semibold))
-                .foregroundColor(KofcColors.onSurface)
+        ZStack(alignment: .topTrailing) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(event.title)
+                    .font(.kofc(16, weight: .semibold))
+                    .foregroundColor(KofcColors.onSurface)
+                    .padding(.trailing, 28)
 
-            Text(dateLine)
-                .font(.kofc(13, weight: .medium))
-                .foregroundColor(KofcColors.goldMuted)
+                Text(dateLine)
+                    .font(.kofc(13, weight: .medium))
+                    .foregroundColor(KofcColors.goldMuted)
 
-            if let location = event.location, !location.isEmpty {
-                Text("📍 \(location)")
-                    .font(.kofc(13))
-                    .foregroundColor(KofcColors.locationText)
-            }
-
-            if let description = event.description, !description.isEmpty {
-                Text(description)
-                    .font(.kofc(14))
-                    .foregroundColor(KofcColors.onSurfaceVariant)
-            }
-
-            HStack(spacing: 8) {
-                // At most one of these ever shows -- mutually exclusive by
-                // construction in KofcRepository.
-                if let signupUrl = event.signupUrl, let url = URL(string: signupUrl) {
-                    actionButton(title: "Sign Up to Volunteer →", url: url)
-                } else if let linkUrl = event.linkUrl, let url = URL(string: linkUrl) {
-                    actionButton(title: "Open Link →", url: url)
+                if let location = event.location, !location.isEmpty {
+                    Text("📍 \(location)")
+                        .font(.kofc(13))
+                        .foregroundColor(KofcColors.locationText)
                 }
 
-                addToCalendarButton
+                if let description = event.description, !description.isEmpty {
+                    Text(description)
+                        .font(.kofc(14))
+                        .foregroundColor(KofcColors.onSurfaceVariant)
+                }
+
+                HStack(spacing: 8) {
+                    // At most one of these ever shows -- mutually exclusive by
+                    // construction in KofcRepository.
+                    if let signupUrl = event.signupUrl, let url = URL(string: signupUrl) {
+                        actionButton(title: "Sign Up to Volunteer →", url: url)
+                    } else if let linkUrl = event.linkUrl, let url = URL(string: linkUrl) {
+                        actionButton(title: "Open Link →", url: url)
+                    }
+
+                    addToCalendarButton
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(16)
+
+            // A corner marker, not another action button -- keeps it from
+            // reading as a second "sign up" CTA next to the real one.
+            interestedButton
+                .padding(12)
         }
-        .padding(16)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(KofcColors.surface)
         .cornerRadius(8)
@@ -83,6 +98,17 @@ struct EventCardView: View {
         }
     }
 
+    private var interestedButton: some View {
+        Button {
+            isGoing.toggle()
+            RsvpStore.toggle(event.id)
+        } label: {
+            Image(systemName: isGoing ? "star.fill" : "star")
+                .foregroundColor(isGoing ? KofcColors.gold : KofcColors.locationText)
+        }
+        .accessibilityLabel(isGoing ? "Marked as signed up" : "Mark as signed up")
+    }
+
     private var addToCalendarButton: some View {
         Button {
             showAddToCalendarConfirm = true
@@ -116,6 +142,17 @@ struct EventCardView: View {
                 .cornerRadius(8)
         }
         .padding(.top, 4)
+    }
+}
+
+struct RsvpLegendView: View {
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: "star.fill")
+            Text("Tap the star to track events you've signed up for")
+        }
+        .font(.kofc(14, weight: .semibold))
+        .foregroundColor(KofcColors.goldMuted)
     }
 }
 

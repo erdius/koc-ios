@@ -22,7 +22,7 @@ struct CalendarTabView: View {
                             .font(.kofc(18, weight: .semibold))
                             .foregroundColor(KofcColors.onBackground)
 
-                        CreateSignUpLinkView()
+                        RsvpLegendView()
 
                         if let errorMessage {
                             ErrorCardView(message: errorMessage)
@@ -44,19 +44,3 @@ struct CalendarTabView: View {
     }
 }
 
-private struct CreateSignUpLinkView: View {
-    @Environment(\.openURL) private var openURL
-
-    var body: some View {
-        (
-            Text("Click here").underline().foregroundColor(KofcColors.gold)
-                + Text(" to create a new sign-up").foregroundColor(KofcColors.onBackground)
-        )
-        .font(.kofc(17))
-        .onTapGesture {
-            if let url = URL(string: "https://www.signupgenius.com/") {
-                openURL(url)
-            }
-        }
-    }
-}
