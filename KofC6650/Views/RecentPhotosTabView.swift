@@ -71,6 +71,10 @@ struct RecentPhotosTabView: View {
                             .font(.kofc(14))
                         }
 
+                        Text("Tap a photo to save or share it")
+                            .font(.kofc(13))
+                            .foregroundColor(KofcColors.locationText)
+
                         if displayedIsLoading {
                             ProgressView()
                                 .tint(KofcColors.navy)
