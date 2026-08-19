@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 @MainActor
 final class AppViewModel: ObservableObject {
@@ -67,6 +68,27 @@ final class AppViewModel: ObservableObject {
             }
         }
         isLoadingEvents = false
+        updateWidgetData()
+    }
+
+    // Hands the next upcoming event to the home screen widget via the
+    // shared App Group -- the widget process can't reach the network or
+    // KofcRepository itself, so this is the only way it learns anything.
+    private func updateWidgetData() {
+        let next = allEvents
+            .filter { EventDateFormatter.isTodayOrLater($0.date) }
+            .sorted { $0.date < $1.date }
+            .first
+        let info = next.map {
+            NextEventInfo(
+                title: $0.title,
+                dateDisplay: EventDateFormatter.displayString(from: $0.date),
+                time: ($0.time?.isEmpty == false) ? $0.time : nil,
+                location: $0.location
+            )
+        }
+        NextEventInfo.save(info)
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     private func loadPhotos() async {

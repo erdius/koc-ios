@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		056D6CFA69DE54D79282B19C /* CalendarAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */; };
 		0E8E5781E382FE3EB163AF5C /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */; };
+		1D1CA4BAF6B45E32F11BAEEF /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
 		23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */; };
 		29D1A06758B93887298697F2 /* PinGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */; };
 		2E94977B75B1876F51758462 /* KofC6650App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A33F4D61151B582203D49 /* KofC6650App.swift */; };
@@ -16,7 +17,9 @@
 		461659C7235B30FF79655ADF /* PhotoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DAD1F53CA9BE74C22043DB /* PhotoAPI.swift */; };
 		4DFF0160CD24D48D6FF2DEFA /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2E793D417E7EF69195F97 /* CalendarModels.swift */; };
 		557444BE9188D2C530BAE027 /* DirectorsOfficersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */; };
+		574E5A48ADD9BA70176DD370 /* KofC6650Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */; };
 		5B758FC2BF99E92AE7848E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980B53EB0BB4324966B91EFB /* Assets.xcassets */; };
+		61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
 		70965FFDB60B1A59A63170D3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA9A948706F71F236123 /* Colors.swift */; };
 		7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */; };
 		86F8D243ABFE96CE02719772 /* FontScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D7F7121AA8D2F353E38EA /* FontScale.swift */; };
@@ -29,6 +32,7 @@
 		A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8076762FD066321663D4B /* ScreenshotMode.swift */; };
 		AE6C61B01F8229A489F091DE /* EventDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8490C08C37078A2923246 /* EventDateFormatter.swift */; };
 		AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */; };
+		C527041D4386CAE91CBBAC09 /* KofC6650Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
@@ -37,6 +41,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		725F200EEA300DF43A03583F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D18BF8031E408C731840FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E126392374B3DEA394C00E23;
+			remoteInfo = KofC6650Widget;
+		};
 		7AA8318E4FF3A8808D03F0F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97D18BF8031E408C731840FC /* Project object */;
@@ -46,10 +57,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4697519CD32D400D47C098FB /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C527041D4386CAE91CBBAC09 /* KofC6650Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = KofC6650ScreenshotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0149E14C5FD8CA35CD665421 /* KofC6650Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KofC6650Widget.entitlements; sourceTree = "<group>"; };
 		131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineCache.swift; sourceTree = "<group>"; };
+		1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofC6650Widget.swift; sourceTree = "<group>"; };
 		30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorsOfficersView.swift; sourceTree = "<group>"; };
+		3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KofC6650Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
 		66683575D95351DD69FAAAD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
@@ -58,6 +86,7 @@
 		796D7F7121AA8D2F353E38EA /* FontScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontScale.swift; sourceTree = "<group>"; };
 		7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTabView.swift; sourceTree = "<group>"; };
 		803FAD5FB7688FA05FA0359F /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
+		8927062DE37E2FF06CF17808 /* KofC6650.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KofC6650.entitlements; sourceTree = "<group>"; };
 		921A0260433CE1F5268F71A8 /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
 		980B53EB0BB4324966B91EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinGateView.swift; sourceTree = "<group>"; };
@@ -65,6 +94,7 @@
 		A1392280990F72A58F1C4D43 /* KofC6650.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = KofC6650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5F40A5510B132CB6D1CB90 /* LeadershipModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipModels.swift; sourceTree = "<group>"; };
 		ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsvpStore.swift; sourceTree = "<group>"; };
+		AE2BED6E983422D3518911B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosTabView.swift; sourceTree = "<group>"; };
 		C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotUITests.swift; sourceTree = "<group>"; };
 		DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofcRepository.swift; sourceTree = "<group>"; };
@@ -72,6 +102,7 @@
 		DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExporter.swift; sourceTree = "<group>"; };
 		E5A2E793D417E7EF69195F97 /* CalendarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
 		ECD8076762FD066321663D4B /* ScreenshotMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotMode.swift; sourceTree = "<group>"; };
+		ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextEventInfo.swift; sourceTree = "<group>"; };
 		EF3A33F4D61151B582203D49 /* KofC6650App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofC6650App.swift; sourceTree = "<group>"; };
 		F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		F6C8490C08C37078A2923246 /* EventDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDateFormatter.swift; sourceTree = "<group>"; };
@@ -84,6 +115,8 @@
 			children = (
 				69FEEC399114E989CF7DEAA6 /* KofC6650 */,
 				DA189F7AB9CAAE9AE97A078B /* KofC6650ScreenshotUITests */,
+				CBA17F7E00110CBFBD51A311 /* KofC6650Widget */,
+				5378F3B8EC5C5201F7A2FEE4 /* Shared */,
 				A346606BC6D3D7BB6D3F1D2B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +144,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5378F3B8EC5C5201F7A2FEE4 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		69FEEC399114E989CF7DEAA6 /* KofC6650 */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +161,7 @@
 				F6C8490C08C37078A2923246 /* EventDateFormatter.swift */,
 				796D7F7121AA8D2F353E38EA /* FontScale.swift */,
 				6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */,
+				8927062DE37E2FF06CF17808 /* KofC6650.entitlements */,
 				EF3A33F4D61151B582203D49 /* KofC6650App.swift */,
 				DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */,
 				131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */,
@@ -139,6 +181,7 @@
 			children = (
 				A1392280990F72A58F1C4D43 /* KofC6650.app */,
 				001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */,
+				3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +194,16 @@
 				F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CBA17F7E00110CBFBD51A311 /* KofC6650Widget */ = {
+			isa = PBXGroup;
+			children = (
+				AE2BED6E983422D3518911B1 /* Info.plist */,
+				0149E14C5FD8CA35CD665421 /* KofC6650Widget.entitlements */,
+				1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */,
+			);
+			path = KofC6650Widget;
 			sourceTree = "<group>";
 		};
 		DA189F7AB9CAAE9AE97A078B /* KofC6650ScreenshotUITests */ = {
@@ -179,10 +232,12 @@
 			buildPhases = (
 				C87CEDBAFDDA015931A5CFE9 /* Sources */,
 				DD67F7C38C086883219FC01E /* Resources */,
+				4697519CD32D400D47C098FB /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9F1DB99070410444F9A02F41 /* PBXTargetDependency */,
 			);
 			name = KofC6650;
 			packageProductDependencies = (
@@ -209,6 +264,23 @@
 			productReference = 001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E126392374B3DEA394C00E23 /* KofC6650Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40B71A83D492B6E20414821B /* Build configuration list for PBXNativeTarget "KofC6650Widget" */;
+			buildPhases = (
+				550928467A5E0A27BFB15FCF /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KofC6650Widget;
+			packageProductDependencies = (
+			);
+			productName = KofC6650Widget;
+			productReference = 3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +299,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6280DD6E5F1E0C2B7AB4FC8E;
 					};
+					E126392374B3DEA394C00E23 = {
+						DevelopmentTeam = 2ZE6NLQ8E5;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 0B23E5C73FA18E5DD52AC401 /* Build configuration list for PBXProject "KofC6650" */;
@@ -244,6 +320,7 @@
 			projectRoot = "";
 			targets = (
 				6280DD6E5F1E0C2B7AB4FC8E /* KofC6650 */,
+				E126392374B3DEA394C00E23 /* KofC6650Widget */,
 				D2976B4272C5A766446985DC /* KofC6650ScreenshotUITests */,
 			);
 		};
@@ -269,6 +346,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		550928467A5E0A27BFB15FCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				574E5A48ADD9BA70176DD370 /* KofC6650Widget.swift in Sources */,
+				1D1CA4BAF6B45E32F11BAEEF /* NextEventInfo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C87CEDBAFDDA015931A5CFE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +375,7 @@
 				2E94977B75B1876F51758462 /* KofC6650App.swift in Sources */,
 				7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */,
 				933B4938AFB69284F7601A1F /* LeadershipModels.swift in Sources */,
+				61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */,
 				9AB0EFB952B7B18A80912BFC /* OfflineCache.swift in Sources */,
 				461659C7235B30FF79655ADF /* PhotoAPI.swift in Sources */,
 				EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */,
@@ -304,6 +391,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9F1DB99070410444F9A02F41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E126392374B3DEA394C00E23 /* KofC6650Widget */;
+			targetProxy = 725F200EEA300DF43A03583F /* PBXContainerItemProxy */;
+		};
 		DAF6DD234453348C8399C972 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6280DD6E5F1E0C2B7AB4FC8E /* KofC6650 */;
@@ -316,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KofC6650/KofC6650.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
@@ -342,6 +435,31 @@
 			};
 			name = Debug;
 		};
+		640DF7C065DEE96569F6046E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KofC6650Widget/KofC6650Widget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = KofC6650Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		659E03897698F06669DBAA81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -363,10 +481,36 @@
 			};
 			name = Debug;
 		};
+		708472A49492C062F9AA8D1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = KofC6650Widget/KofC6650Widget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = KofC6650Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		8B27E52961DC236D7763570D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KofC6650/KofC6650.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
@@ -541,6 +685,15 @@
 			buildConfigurations = (
 				B1C8ACA28834048B8C3DC3BD /* Debug */,
 				AAF1A74A290D0D5D4D8FD125 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		40B71A83D492B6E20414821B /* Build configuration list for PBXNativeTarget "KofC6650Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				708472A49492C062F9AA8D1A /* Debug */,
+				640DF7C065DEE96569F6046E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
