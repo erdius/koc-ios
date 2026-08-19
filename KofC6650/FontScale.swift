@@ -42,4 +42,10 @@ extension Font {
     static func kofc(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
         .system(size: size * FontScale.shared.preset.multiplier, weight: weight)
     }
+
+    /// Ignores the user's Text Size preference -- for chrome like the top
+    /// header that should stay a fixed size regardless of in-app scaling.
+    static func kofcFixed(_ size: CGFloat, weight: Font.Weight = .regular) -> Font {
+        .system(size: size, weight: weight)
+    }
 }

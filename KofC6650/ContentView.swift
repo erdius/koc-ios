@@ -135,6 +135,7 @@ struct ContentView: View {
     @State private var previousScenePhase: ScenePhase = .active
     @State private var showAbout = false
     @State private var showDirectorsOfficers = false
+    @State private var showJoinKofc = false
     @State private var showWhatsNew = WhatsNew.shouldShow
 
     var body: some View {
@@ -258,16 +259,20 @@ struct ContentView: View {
         HStack(spacing: 12) {
             ZStack {
                 Circle().fill(KofcColors.gold).frame(width: 44, height: 44)
-                Text("K").font(.kofc(20, weight: .bold)).foregroundColor(KofcColors.navy)
+                Text("K").font(.kofcFixed(20, weight: .bold)).foregroundColor(KofcColors.navy)
             }
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("Knights of Columbus")
-                    .font(.kofc(21, weight: .semibold))
+                    .font(.kofcFixed(21, weight: .semibold))
                     .foregroundColor(KofcColors.gold)
                 Text("Council 6650 — Cary & Apex, NC")
-                    .font(.kofc(13))
+                    .font(.kofcFixed(13))
                     .foregroundColor(KofcColors.subtitleText)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                showJoinKofc = true
             }
 
             Spacer()
@@ -300,6 +305,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showDirectorsOfficers) {
             DirectorsOfficersView()
+        }
+        .sheet(isPresented: $showJoinKofc) {
+            JoinKofcView()
         }
     }
 }

@@ -20,6 +20,7 @@
 		557444BE9188D2C530BAE027 /* DirectorsOfficersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */; };
 		574E5A48ADD9BA70176DD370 /* KofC6650Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */; };
 		5B758FC2BF99E92AE7848E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980B53EB0BB4324966B91EFB /* Assets.xcassets */; };
+		615B5B56E12FDD52A24EFB28 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */; };
 		61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
 		70965FFDB60B1A59A63170D3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA9A948706F71F236123 /* Colors.swift */; };
 		7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */; };
@@ -38,6 +39,7 @@
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
 		D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
+		E42083B42802EE51491D5BE4 /* JoinKofcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D755822F6317BAE802997 /* JoinKofcView.swift */; };
 		E794F66228B92F17A23E2DB3 /* AppearanceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
 		F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66683575D95351DD69FAAAD0 /* ContentView.swift */; };
@@ -84,11 +86,13 @@
 		3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceMode.swift; sourceTree = "<group>"; };
 		30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorsOfficersView.swift; sourceTree = "<group>"; };
 		3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KofC6650Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
 		66683575D95351DD69FAAAD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
 		71DAD1F53CA9BE74C22043DB /* PhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPI.swift; sourceTree = "<group>"; };
 		786D383DAB43E711EF51B770 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		795D755822F6317BAE802997 /* JoinKofcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinKofcView.swift; sourceTree = "<group>"; };
 		796D7F7121AA8D2F353E38EA /* FontScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontScale.swift; sourceTree = "<group>"; };
 		7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTabView.swift; sourceTree = "<group>"; };
 		803FAD5FB7688FA05FA0359F /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				921A0260433CE1F5268F71A8 /* CalendarTabView.swift */,
 				30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */,
 				F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */,
+				795D755822F6317BAE802997 /* JoinKofcView.swift */,
 				7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */,
 				99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */,
 				B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */,
@@ -177,6 +182,7 @@
 				DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */,
 				131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */,
 				803FAD5FB7688FA05FA0359F /* PinManager.swift */,
+				4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */,
 				ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */,
 				ECD8076762FD066321663D4B /* ScreenshotMode.swift */,
 				992708324AFA4AD6B84B9177 /* WhatsNew.swift */,
@@ -385,6 +391,7 @@
 				AE6C61B01F8229A489F091DE /* EventDateFormatter.swift in Sources */,
 				86F8D243ABFE96CE02719772 /* FontScale.swift in Sources */,
 				98E05C6BB8F92AB627A4DF22 /* GoogleCalendarAPI.swift in Sources */,
+				E42083B42802EE51491D5BE4 /* JoinKofcView.swift in Sources */,
 				0E8E5781E382FE3EB163AF5C /* KeyboardDismiss.swift in Sources */,
 				2E94977B75B1876F51758462 /* KofC6650App.swift in Sources */,
 				7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */,
@@ -396,6 +403,7 @@
 				CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */,
 				29D1A06758B93887298697F2 /* PinGateView.swift in Sources */,
 				419BB8F3E8D4DCD396BCA0C7 /* PinManager.swift in Sources */,
+				615B5B56E12FDD52A24EFB28 /* QRCodeGenerator.swift in Sources */,
 				A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */,
 				AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */,
 				A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */,
