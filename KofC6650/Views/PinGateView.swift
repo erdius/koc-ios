@@ -74,7 +74,7 @@ struct PinGateView: View {
                     Text("Sign up here").underline().foregroundColor(KofcColors.gold)
                         + Text(" and use code ").foregroundColor(KofcColors.onBackground)
                         + Text("BLESSEDMCGIVNEY").fontWeight(.semibold).foregroundColor(KofcColors.onBackground)
-                        + Text(" for a free one-year membership. We're Council 6650!")
+                        + Text(" for a free one-year membership.\n\nWe're Council 6650, serving St. Michael the Archangel, St. Andrew the Apostle and Mother Teresa Catholic Churches in Cary and Apex, NC.")
                             .foregroundColor(KofcColors.onBackground)
                 )
                 .font(.kofc(16))
