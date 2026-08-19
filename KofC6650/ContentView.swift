@@ -204,6 +204,13 @@ struct ContentView: View {
                 // An empty string still renders as a dot on newer iOS tab
                 // bar styles -- must be nil, not "", to actually hide it.
                 .badge(viewModel.hasNewPhotos ? "•" : (nil as String?))
+
+                PaymentsTabView()
+                    .tabItem {
+                        Image(systemName: "creditcard.fill")
+                        Text("Payments")
+                    }
+                    .tag(4)
             }
             // Without this, a focused text field's keyboard pushes the
             // whole TabView (including the tab bar itself) up the screen

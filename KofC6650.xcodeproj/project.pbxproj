@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		056D6CFA69DE54D79282B19C /* CalendarAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */; };
+		05FD6F6E31FACE2CD86CAB44 /* BadgePaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952949EFFFBCBFEED4FA5139 /* BadgePaymentView.swift */; };
 		0AA9A61E084326C0239084C1 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12E019F50D230AD265DEF9A /* WhatsNewView.swift */; };
 		0E8E5781E382FE3EB163AF5C /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */; };
 		1D1CA4BAF6B45E32F11BAEEF /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
@@ -19,10 +20,12 @@
 		4DFF0160CD24D48D6FF2DEFA /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A2E793D417E7EF69195F97 /* CalendarModels.swift */; };
 		557444BE9188D2C530BAE027 /* DirectorsOfficersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */; };
 		574E5A48ADD9BA70176DD370 /* KofC6650Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFD866724AF2B43E87B7058 /* KofC6650Widget.swift */; };
+		591109C05B670EBED79FDE92 /* PaymentsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5015F50D028F255FC15DA31 /* PaymentsTabView.swift */; };
 		5B758FC2BF99E92AE7848E5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980B53EB0BB4324966B91EFB /* Assets.xcassets */; };
 		615B5B56E12FDD52A24EFB28 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */; };
 		61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
 		70965FFDB60B1A59A63170D3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA9A948706F71F236123 /* Colors.swift */; };
+		7E95F9B7FDFB6497E0DE4EE1 /* PayPalSubmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8841737EB5F1B6C7A127820 /* PayPalSubmitter.swift */; };
 		7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */; };
 		86F8D243ABFE96CE02719772 /* FontScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D7F7121AA8D2F353E38EA /* FontScale.swift */; };
 		920C33F3DF453D396A3C59CD /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */; };
@@ -40,6 +43,7 @@
 		D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
 		E42083B42802EE51491D5BE4 /* JoinKofcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D755822F6317BAE802997 /* JoinKofcView.swift */; };
+		E5A0FC41029282CADF11B167 /* DuesPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071F317576E17C89FF6A171 /* DuesPaymentView.swift */; };
 		E794F66228B92F17A23E2DB3 /* AppearanceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */; };
 		EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F842198AA3F6C5D12F7FCDBA /* PhotoModels.swift */; };
 		F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66683575D95351DD69FAAAD0 /* ContentView.swift */; };
@@ -88,6 +92,7 @@
 		3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KofC6650Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
+		5071F317576E17C89FF6A171 /* DuesPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuesPaymentView.swift; sourceTree = "<group>"; };
 		66683575D95351DD69FAAAD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
 		71DAD1F53CA9BE74C22043DB /* PhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPI.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 		803FAD5FB7688FA05FA0359F /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
 		8927062DE37E2FF06CF17808 /* KofC6650.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KofC6650.entitlements; sourceTree = "<group>"; };
 		921A0260433CE1F5268F71A8 /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
+		952949EFFFBCBFEED4FA5139 /* BadgePaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePaymentView.swift; sourceTree = "<group>"; };
 		980B53EB0BB4324966B91EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		992708324AFA4AD6B84B9177 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinGateView.swift; sourceTree = "<group>"; };
@@ -106,9 +112,11 @@
 		AC5F40A5510B132CB6D1CB90 /* LeadershipModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipModels.swift; sourceTree = "<group>"; };
 		ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsvpStore.swift; sourceTree = "<group>"; };
 		AE2BED6E983422D3518911B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B5015F50D028F255FC15DA31 /* PaymentsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTabView.swift; sourceTree = "<group>"; };
 		B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosTabView.swift; sourceTree = "<group>"; };
 		C12E019F50D230AD265DEF9A /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotUITests.swift; sourceTree = "<group>"; };
+		C8841737EB5F1B6C7A127820 /* PayPalSubmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayPalSubmitter.swift; sourceTree = "<group>"; };
 		DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofcRepository.swift; sourceTree = "<group>"; };
 		DB81CA9A948706F71F236123 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExporter.swift; sourceTree = "<group>"; };
@@ -145,11 +153,14 @@
 			isa = PBXGroup;
 			children = (
 				786D383DAB43E711EF51B770 /* AboutView.swift */,
+				952949EFFFBCBFEED4FA5139 /* BadgePaymentView.swift */,
 				9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */,
 				921A0260433CE1F5268F71A8 /* CalendarTabView.swift */,
 				30C667F8622772C6A36B355C /* DirectorsOfficersView.swift */,
+				5071F317576E17C89FF6A171 /* DuesPaymentView.swift */,
 				F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */,
 				795D755822F6317BAE802997 /* JoinKofcView.swift */,
+				B5015F50D028F255FC15DA31 /* PaymentsTabView.swift */,
 				7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */,
 				99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */,
 				B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */,
@@ -181,6 +192,7 @@
 				EF3A33F4D61151B582203D49 /* KofC6650App.swift */,
 				DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */,
 				131B5CC8F1CAB0068FCCA974 /* OfflineCache.swift */,
+				C8841737EB5F1B6C7A127820 /* PayPalSubmitter.swift */,
 				803FAD5FB7688FA05FA0359F /* PinManager.swift */,
 				4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */,
 				ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */,
@@ -380,6 +392,7 @@
 				9A4EBA153220FC049130E41B /* AboutView.swift in Sources */,
 				D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */,
 				E794F66228B92F17A23E2DB3 /* AppearanceMode.swift in Sources */,
+				05FD6F6E31FACE2CD86CAB44 /* BadgePaymentView.swift in Sources */,
 				056D6CFA69DE54D79282B19C /* CalendarAgendaView.swift in Sources */,
 				23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */,
 				4DFF0160CD24D48D6FF2DEFA /* CalendarModels.swift in Sources */,
@@ -387,6 +400,7 @@
 				70965FFDB60B1A59A63170D3 /* Colors.swift in Sources */,
 				F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */,
 				557444BE9188D2C530BAE027 /* DirectorsOfficersView.swift in Sources */,
+				E5A0FC41029282CADF11B167 /* DuesPaymentView.swift in Sources */,
 				920C33F3DF453D396A3C59CD /* EventCardView.swift in Sources */,
 				AE6C61B01F8229A489F091DE /* EventDateFormatter.swift in Sources */,
 				86F8D243ABFE96CE02719772 /* FontScale.swift in Sources */,
@@ -398,6 +412,8 @@
 				933B4938AFB69284F7601A1F /* LeadershipModels.swift in Sources */,
 				61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */,
 				9AB0EFB952B7B18A80912BFC /* OfflineCache.swift in Sources */,
+				7E95F9B7FDFB6497E0DE4EE1 /* PayPalSubmitter.swift in Sources */,
+				591109C05B670EBED79FDE92 /* PaymentsTabView.swift in Sources */,
 				461659C7235B30FF79655ADF /* PhotoAPI.swift in Sources */,
 				EC1BA82E3FBA31FF7BD2D0EA /* PhotoModels.swift in Sources */,
 				CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */,
@@ -435,7 +451,7 @@
 				CODE_SIGN_ENTITLEMENTS = KofC6650/KofC6650.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -451,7 +467,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
@@ -465,7 +481,7 @@
 				CODE_SIGN_ENTITLEMENTS = KofC6650Widget/KofC6650Widget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = KofC6650Widget/Info.plist;
@@ -475,7 +491,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -511,7 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = KofC6650Widget/KofC6650Widget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = KofC6650Widget/Info.plist;
@@ -521,7 +537,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650.widget;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -537,7 +553,7 @@
 				CODE_SIGN_ENTITLEMENTS = KofC6650/KofC6650.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 2ZE6NLQ8E5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -553,7 +569,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.13;
+				MARKETING_VERSION = 1.0.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.erdman.kofc6650;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
