@@ -4,6 +4,7 @@ struct CalendarAgendaView: View {
     let events: [EventDto]
     let isLoading: Bool
     let errorMessage: String?
+    let onRefresh: () async -> Void
 
     private var upcoming: [EventDto] {
         events
@@ -40,6 +41,7 @@ struct CalendarAgendaView: View {
                     }
                     .padding(16)
                 }
+                .refreshable { await onRefresh() }
             }
         }
         .background(KofcColors.background)

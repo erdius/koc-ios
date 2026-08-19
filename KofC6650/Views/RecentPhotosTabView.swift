@@ -6,6 +6,7 @@ struct RecentPhotosTabView: View {
     let photos: [RecentPhotoDto]
     let isLoading: Bool
     let errorMessage: String?
+    let onRefresh: () async -> Void
 
     @State private var enlargedPhoto: RecentPhotoDto?
 
@@ -97,6 +98,7 @@ struct RecentPhotosTabView: View {
                     }
                     .padding(16)
                 }
+                .refreshable { await onRefresh() }
             }
         }
         .background(KofcColors.background)

@@ -149,7 +149,8 @@ struct ContentView: View {
                 CalendarTabView(
                     events: viewModel.signupEvents,
                     isLoading: viewModel.isLoadingEvents,
-                    errorMessage: viewModel.eventsError
+                    errorMessage: viewModel.eventsError,
+                    onRefresh: { await viewModel.refresh() }
                 )
                 .tabItem {
                     Image(systemName: "person.2.fill")
@@ -160,7 +161,8 @@ struct ContentView: View {
                 CalendarAgendaView(
                     events: viewModel.allEvents,
                     isLoading: viewModel.isLoadingEvents,
-                    errorMessage: viewModel.eventsError
+                    errorMessage: viewModel.eventsError,
+                    onRefresh: { await viewModel.refresh() }
                 )
                 .tabItem {
                     Image(systemName: "calendar")
@@ -178,7 +180,8 @@ struct ContentView: View {
                 RecentPhotosTabView(
                     photos: viewModel.recentPhotos,
                     isLoading: viewModel.isLoadingPhotos,
-                    errorMessage: viewModel.photosError
+                    errorMessage: viewModel.photosError,
+                    onRefresh: { await viewModel.refresh() }
                 )
                 .tabItem {
                     Image(systemName: "photo.on.rectangle.fill")

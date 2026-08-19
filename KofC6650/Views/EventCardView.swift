@@ -28,7 +28,9 @@ struct EventCardView: View {
                 if let location = event.location, !location.isEmpty {
                     Text("📍 \(location)")
                         .font(.kofc(13))
+                        .underline()
                         .foregroundColor(KofcColors.locationText)
+                        .onTapGesture { openInMaps(location) }
                 }
 
                 if let description = event.description, !description.isEmpty {
@@ -128,6 +130,12 @@ struct EventCardView: View {
             line += " · \(time)"
         }
         return line
+    }
+
+    private func openInMaps(_ location: String) {
+        guard let encoded = location.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: "https://maps.apple.com/?q=\(encoded)") else { return }
+        openURL(url)
     }
 
     private func actionButton(title: String, url: URL) -> some View {
