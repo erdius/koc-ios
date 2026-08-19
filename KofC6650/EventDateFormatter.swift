@@ -31,4 +31,22 @@ enum EventDateFormatter {
         guard let today = isoDateFormatter.date(from: todayString) else { return false }
         return date >= today
     }
+
+    enum DateBucket: String, CaseIterable {
+        case today = "Today"
+        case thisWeek = "This Week"
+        case later = "Later"
+    }
+
+    /// Assumes isoDateString is already today-or-later; callers filter with
+    /// isTodayOrLater(_:) first.
+    static func bucket(for isoDateString: String) -> DateBucket {
+        guard let date = isoDateFormatter.date(from: isoDateString) else { return .later }
+        let todayString = isoDateFormatter.string(from: Date())
+        guard let today = isoDateFormatter.date(from: todayString) else { return .later }
+        let days = Calendar(identifier: .gregorian).dateComponents([.day], from: today, to: date).day ?? 0
+        if days == 0 { return .today }
+        if days <= 6 { return .thisWeek }
+        return .later
+    }
 }

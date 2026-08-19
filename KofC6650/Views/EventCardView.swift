@@ -247,6 +247,33 @@ private struct AddToCalendarSheet: View {
     }
 }
 
+/// Groups events into Today / This Week / Later sections so a longer list
+/// is easier to scan at a glance. Callers should already have filtered to
+/// today-or-later events.
+struct EventListSections: View {
+    let events: [EventDto]
+
+    var body: some View {
+        ForEach(EventDateFormatter.DateBucket.allCases, id: \.self) { bucket in
+            let bucketEvents = events
+                .filter { EventDateFormatter.bucket(for: $0.date) == bucket }
+                .sorted { $0.date < $1.date }
+            if !bucketEvents.isEmpty {
+                Text(bucket.rawValue)
+                    .font(.kofc(14, weight: .bold))
+                    .foregroundColor(KofcColors.gold)
+                    .textCase(.uppercase)
+                    .tracking(1.2)
+                    .padding(.top, 8)
+
+                ForEach(bucketEvents) { event in
+                    EventCardView(event: event)
+                }
+            }
+        }
+    }
+}
+
 struct RsvpLegendView: View {
     var body: some View {
         HStack(spacing: 6) {

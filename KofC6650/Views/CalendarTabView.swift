@@ -33,9 +33,7 @@ struct CalendarTabView: View {
                             EmptyStateText(text: "No upcoming events on the calendar.")
                         }
 
-                        ForEach(upcoming) { event in
-                            EventCardView(event: event)
-                        }
+                        EventListSections(events: upcoming)
                     }
                     .padding(16)
                 }
