@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import WidgetKit
 
 @MainActor
@@ -212,6 +213,19 @@ struct ContentView: View {
         .task {
             await viewModel.refresh()
         }
+        .onAppear {
+            // Cold launch via a quick action: the tap happened before
+            // ContentView existed to receive the notification below, so
+            // AppDelegate stashed it statically for this one-time check.
+            if let item = AppDelegate.launchShortcutItem {
+                AppDelegate.launchShortcutItem = nil
+                applyQuickAction(item)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .quickActionTapped)) { notification in
+            guard let item = notification.object as? UIApplicationShortcutItem else { return }
+            applyQuickAction(item)
+        }
         .onChange(of: selectedTab) { newTab in
             if newTab == 3 { viewModel.markPhotosSeen() }
         }
@@ -229,6 +243,11 @@ struct ContentView: View {
                 Task { await viewModel.refresh() }
             }
         }
+    }
+
+    private func applyQuickAction(_ item: UIApplicationShortcutItem) {
+        guard let action = QuickAction(rawValue: item.type) else { return }
+        selectedTab = action.tabIndex
     }
 
     private var header: some View {
