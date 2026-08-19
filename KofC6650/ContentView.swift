@@ -133,12 +133,19 @@ struct ContentView: View {
     @State private var previousScenePhase: ScenePhase = .active
     @State private var showAbout = false
     @State private var showDirectorsOfficers = false
+    @State private var showWhatsNew = WhatsNew.shouldShow
 
     var body: some View {
         if !pinManager.isUnlocked {
             PinGateView(pinManager: pinManager)
         } else {
             mainContent
+                .sheet(isPresented: $showWhatsNew) {
+                    WhatsNewView(onDismiss: {
+                        WhatsNew.markSeen()
+                        showWhatsNew = false
+                    })
+                }
         }
     }
 

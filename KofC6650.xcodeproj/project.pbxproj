@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		056D6CFA69DE54D79282B19C /* CalendarAgendaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */; };
+		0AA9A61E084326C0239084C1 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12E019F50D230AD265DEF9A /* WhatsNewView.swift */; };
 		0E8E5781E382FE3EB163AF5C /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */; };
 		1D1CA4BAF6B45E32F11BAEEF /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
 		23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */; };
@@ -24,6 +25,7 @@
 		7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */; };
 		86F8D243ABFE96CE02719772 /* FontScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796D7F7121AA8D2F353E38EA /* FontScale.swift */; };
 		920C33F3DF453D396A3C59CD /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */; };
+		93295D4C07F7A4BD4F3A4E26 /* WhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992708324AFA4AD6B84B9177 /* WhatsNew.swift */; };
 		933B4938AFB69284F7601A1F /* LeadershipModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F40A5510B132CB6D1CB90 /* LeadershipModels.swift */; };
 		98E05C6BB8F92AB627A4DF22 /* GoogleCalendarAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */; };
 		9A4EBA153220FC049130E41B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D383DAB43E711EF51B770 /* AboutView.swift */; };
@@ -89,6 +91,7 @@
 		8927062DE37E2FF06CF17808 /* KofC6650.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KofC6650.entitlements; sourceTree = "<group>"; };
 		921A0260433CE1F5268F71A8 /* CalendarTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTabView.swift; sourceTree = "<group>"; };
 		980B53EB0BB4324966B91EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		992708324AFA4AD6B84B9177 /* WhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNew.swift; sourceTree = "<group>"; };
 		99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinGateView.swift; sourceTree = "<group>"; };
 		9A1A0F1027396FBABD285D85 /* CalendarAgendaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarAgendaView.swift; sourceTree = "<group>"; };
 		A1392280990F72A58F1C4D43 /* KofC6650.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = KofC6650.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,7 @@
 		ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RsvpStore.swift; sourceTree = "<group>"; };
 		AE2BED6E983422D3518911B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentPhotosTabView.swift; sourceTree = "<group>"; };
+		C12E019F50D230AD265DEF9A /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotUITests.swift; sourceTree = "<group>"; };
 		DB45BDB40F1CDB8C9A1F0DDE /* KofcRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KofcRepository.swift; sourceTree = "<group>"; };
 		DB81CA9A948706F71F236123 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */,
 				99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */,
 				B8915D325C134C19D1140329 /* RecentPhotosTabView.swift */,
+				C12E019F50D230AD265DEF9A /* WhatsNewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				803FAD5FB7688FA05FA0359F /* PinManager.swift */,
 				ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */,
 				ECD8076762FD066321663D4B /* ScreenshotMode.swift */,
+				992708324AFA4AD6B84B9177 /* WhatsNew.swift */,
 				A4ABCAEB7F2F3193E245733D /* Models */,
 				F829088B9FD335BCB34718A9 /* Networking */,
 				241902A8D4D4079BC27D2D10 /* Theme */,
@@ -385,6 +391,8 @@
 				A24DAD73F13CBE2E20B319CE /* RecentPhotosTabView.swift in Sources */,
 				AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */,
 				A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */,
+				93295D4C07F7A4BD4F3A4E26 /* WhatsNew.swift in Sources */,
+				0AA9A61E084326C0239084C1 /* WhatsNewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
