@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct EventCardView: View {
     let event: EventDto
@@ -70,6 +71,7 @@ struct EventCardView: View {
             AddToCalendarSheet(
                 event: event,
                 onAdd: { slotTime in
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                     showAddToCalendarSheet = false
                     Task {
                         switch await CalendarExporter.addToCalendar(event, slotTime: slotTime) {
@@ -100,6 +102,7 @@ struct EventCardView: View {
 
     private var interestedButton: some View {
         Button {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             isGoing.toggle()
             RsvpStore.toggle(event.id)
         } label: {
