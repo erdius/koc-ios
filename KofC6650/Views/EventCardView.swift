@@ -50,6 +50,7 @@ struct EventCardView: View {
                     }
 
                     addToCalendarButton
+                    shareButton
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -125,12 +126,34 @@ struct EventCardView: View {
         .padding(.top, 4)
     }
 
+    private var shareButton: some View {
+        ShareLink(item: shareText) {
+            Image(systemName: "square.and.arrow.up")
+                .foregroundColor(KofcColors.gold)
+                .padding(10)
+                .background(KofcColors.navy)
+                .cornerRadius(8)
+        }
+        .padding(.top, 4)
+    }
+
     private var dateLine: String {
         var line = "📅 " + EventDateFormatter.displayString(from: event.date)
         if let time = event.time, !time.isEmpty {
             line += " · \(time)"
         }
         return line
+    }
+
+    private var shareText: String {
+        var lines = [event.title, dateLine]
+        if let location = event.location, !location.isEmpty {
+            lines.append("📍 \(location)")
+        }
+        if let url = event.signupUrl ?? event.linkUrl {
+            lines.append(url)
+        }
+        return lines.joined(separator: "\n")
     }
 
     private func openInMaps(_ location: String) {
