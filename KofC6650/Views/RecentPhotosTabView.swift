@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 struct RecentPhotosTabView: View {
     let photos: [RecentPhotoDto]
@@ -261,6 +262,20 @@ private struct MonthPickerView: View {
 
 /// Pinch-zoom/pan viewer matching the Android Dialog's behavior: scale
 /// clamped to [1, 5], pan disabled and reset whenever scale <= 1.
+// Real PNG data with the correct UTType -- ShareLink's system extensions
+// (Photos' "Save Image" in particular) only offer image-specific actions
+// when the exported representation is recognizable image data, not just
+// any Transferable.
+private struct SharablePhoto: Transferable {
+    let image: UIImage
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .png) { sharable in
+            sharable.image.pngData() ?? Data()
+        }
+    }
+}
+
 private struct PhotoViewer: View {
     let url: URL?
     let onClose: () -> Void
@@ -268,51 +283,85 @@ private struct PhotoViewer: View {
     @State private var scale: CGFloat = 1
     @State private var offset: CGSize = .zero
     @State private var lastOffset: CGSize = .zero
+    // A real UIImage, not a SwiftUI Image -- the system share sheet only
+    // offers "Save Image" for photo-library activities when it recognizes
+    // the shared item as actual image data, which UIImage's Transferable
+    // conformance provides and a bare SwiftUI Image's doesn't reliably.
+    @State private var loadedImage: UIImage?
+    @State private var loadFailed = false
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Color.black.opacity(0.9).ignoresSafeArea()
 
-            AsyncImage(url: url) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .scaleEffect(scale)
-                    .offset(offset)
-                    .gesture(
-                        MagnificationGesture()
-                            .onChanged { value in
-                                scale = min(5, max(1, value))
-                            }
-                            .onEnded { _ in
-                                if scale <= 1 {
-                                    offset = .zero
-                                    lastOffset = .zero
+            Group {
+                if let loadedImage {
+                    Image(uiImage: loadedImage)
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(scale)
+                        .offset(offset)
+                        .gesture(
+                            MagnificationGesture()
+                                .onChanged { value in
+                                    scale = min(5, max(1, value))
                                 }
-                            }
-                    )
-                    .simultaneousGesture(
-                        DragGesture()
-                            .onChanged { value in
-                                guard scale > 1 else { return }
-                                offset = CGSize(
-                                    width: lastOffset.width + value.translation.width,
-                                    height: lastOffset.height + value.translation.height
-                                )
-                            }
-                            .onEnded { _ in
-                                lastOffset = offset
-                            }
-                    )
-            } placeholder: {
-                ProgressView().tint(.white)
+                                .onEnded { _ in
+                                    if scale <= 1 {
+                                        offset = .zero
+                                        lastOffset = .zero
+                                    }
+                                }
+                        )
+                        .simultaneousGesture(
+                            DragGesture()
+                                .onChanged { value in
+                                    guard scale > 1 else { return }
+                                    offset = CGSize(
+                                        width: lastOffset.width + value.translation.width,
+                                        height: lastOffset.height + value.translation.height
+                                    )
+                                }
+                                .onEnded { _ in
+                                    lastOffset = offset
+                                }
+                        )
+                } else if loadFailed {
+                    Image(systemName: "photo")
+                        .foregroundColor(.white)
+                } else {
+                    ProgressView().tint(.white)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .task(id: url) {
+                guard let url else {
+                    loadFailed = true
+                    return
+                }
+                if let (data, _) = try? await URLSession.shared.data(from: url),
+                   let image = UIImage(data: data) {
+                    loadedImage = image
+                } else {
+                    loadFailed = true
+                }
+            }
 
-            Button(action: onClose) {
-                Image(systemName: "xmark")
-                    .foregroundColor(.white)
-                    .padding(8)
+            HStack(spacing: 20) {
+                if let loadedImage {
+                    ShareLink(
+                        item: SharablePhoto(image: loadedImage),
+                        preview: SharePreview("Council Photo", image: Image(uiImage: loadedImage))
+                    ) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.white)
+                    }
+                }
+
+                Button(action: onClose) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.white)
+                }
             }
             .padding(8)
         }

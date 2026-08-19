@@ -25,6 +25,7 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_NSCalendarsUsageDescription: "Used to add council events to your calendar when you tap \"Add to Calendar.\""
         INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription: "Used to add council events to your calendar when you tap \"Add to Calendar.\""
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Used to save a photo to your library when you choose \"Save Image\" from the share sheet."
         ENABLE_PREVIEWS: YES
         CODE_SIGN_STYLE: Automatic
         CODE_SIGN_IDENTITY: "Apple Development"
