@@ -86,7 +86,7 @@ struct EventCardView: View {
             )
         }
         .alert(
-            "Add to Calendar",
+            "Add to My Calendar",
             isPresented: Binding(
                 get: { calendarStatusMessage != nil },
                 set: { if !$0 { calendarStatusMessage = nil } }
@@ -206,7 +206,7 @@ private struct AddToCalendarSheet: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Add to Calendar")
+            .navigationTitle("Add to My Calendar")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
