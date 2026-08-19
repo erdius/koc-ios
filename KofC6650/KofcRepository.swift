@@ -83,7 +83,7 @@ enum KofcRepository {
 
     private static func extractSignupUrl(_ text: String?) -> String? {
         guard let text, !text.isEmpty else { return nil }
-        return firstMatch(of: signupURLRegex, in: text)
+        return firstMatch(of: signupURLRegex, in: text).map(unescapeHtmlEntities)
     }
 
     private static func extractGenericUrl(_ text: String?) -> String? {
@@ -92,7 +92,18 @@ enum KofcRepository {
         while let last = url.last, ".,)]".contains(last) {
             url.removeLast()
         }
-        return url
+        return unescapeHtmlEntities(url)
+    }
+
+    // URLs are extracted from the raw (still-HTML) description, which
+    // encodes multi-param query strings as "...&amp;startdate=..." --
+    // opening that literally sends "amp;startdate" as the param name,
+    // silently breaking any link with more than one query parameter.
+    private static func unescapeHtmlEntities(_ text: String) -> String {
+        text
+            .replacingOccurrences(of: "&amp;", with: "&")
+            .replacingOccurrences(of: "&lt;", with: "<")
+            .replacingOccurrences(of: "&gt;", with: ">")
     }
 
     private static func cleanDescription(_ text: String?) -> String {

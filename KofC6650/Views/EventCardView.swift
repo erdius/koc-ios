@@ -40,6 +40,15 @@ struct EventCardView: View {
                         .foregroundColor(KofcColors.onSurfaceVariant)
                 }
 
+                // Feed the Homeless reuses one signup link across every
+                // occurrence, so it always opens whatever sheet is
+                // currently live rather than the date shown here.
+                if event.title == "Feed the Homeless" {
+                    Text("⚠️ This event uses a recurring signup link that doesn't change. Please make sure the signup sheet matches this date before signing up.")
+                        .font(.kofc(12))
+                        .foregroundColor(KofcColors.locationText)
+                }
+
                 HStack(spacing: 8) {
                     // At most one of these ever shows -- mutually exclusive by
                     // construction in KofcRepository.
