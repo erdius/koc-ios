@@ -277,25 +277,30 @@ struct ContentView: View {
 
             Spacer()
 
-            Button {
-                showDirectorsOfficers = true
-            } label: {
-                Image(systemName: "envelope.circle")
-                    .foregroundColor(KofcColors.gold)
-            }
+            HStack(spacing: 4) {
+                Button {
+                    showDirectorsOfficers = true
+                } label: {
+                    Image(systemName: "envelope.circle")
+                        .imageScale(.large)
+                        .foregroundColor(KofcColors.gold)
+                }
 
-            Button {
-                showAbout = true
-            } label: {
-                Image(systemName: "info.circle")
-                    .foregroundColor(KofcColors.gold)
-            }
+                Button {
+                    showAbout = true
+                } label: {
+                    Image(systemName: "info.circle")
+                        .imageScale(.large)
+                        .foregroundColor(KofcColors.gold)
+                }
 
-            Button {
-                Task { await viewModel.refresh() }
-            } label: {
-                Image(systemName: "arrow.clockwise")
-                    .foregroundColor(KofcColors.gold)
+                Button {
+                    Task { await viewModel.refresh() }
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                        .imageScale(.large)
+                        .foregroundColor(KofcColors.gold)
+                }
             }
         }
         .padding(16)
