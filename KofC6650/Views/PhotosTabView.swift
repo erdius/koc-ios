@@ -25,7 +25,7 @@ struct PhotosTabView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Share Your Event Photos")
-                    .font(.kofc(18, weight: .semibold))
+                    .font(.kofcFixed(18, weight: .semibold))
                     .foregroundColor(KofcColors.onBackground)
 
                 VStack(alignment: .leading, spacing: 12) {

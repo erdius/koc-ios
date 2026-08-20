@@ -12,6 +12,7 @@
 		0AA9A61E084326C0239084C1 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12E019F50D230AD265DEF9A /* WhatsNewView.swift */; };
 		0E8E5781E382FE3EB163AF5C /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */; };
 		1D1CA4BAF6B45E32F11BAEEF /* NextEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EF9228CE533B1A7897E8B /* NextEventInfo.swift */; };
+		20D18ED893413ED6A2760835 /* MonthCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E950075319FCEDCB30FB4C6 /* MonthCalendarView.swift */; };
 		23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */; };
 		29D1A06758B93887298697F2 /* PinGateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */; };
 		2E94977B75B1876F51758462 /* KofC6650App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A33F4D61151B582203D49 /* KofC6650App.swift */; };
@@ -40,7 +41,9 @@
 		AF462E0EBE67AC0C2AAE3955 /* RsvpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA3AB39A54A22CAE72C27E8 /* RsvpStore.swift */; };
 		C527041D4386CAE91CBBAC09 /* KofC6650Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CDFC39BB85E88440E4CC647C /* PhotosTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */; };
+		CEF2781F2E53D0CFB7AE3F20 /* CalendarViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E83809CADDE878F935D20D3 /* CalendarViewMode.swift */; };
 		D5210263616C141E1A785DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F69BE0E2EE1E2861C1C4232 /* AppDelegate.swift */; };
+		DB485BC14A55DD8A1C2BB42C /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69B1CF605B8EA0C8611B53 /* HeightPreferenceKey.swift */; };
 		E29E8F127B933E5BCC2A5528 /* ScreenshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86B1820031801ADECC7F2C8 /* ScreenshotUITests.swift */; };
 		E42083B42802EE51491D5BE4 /* JoinKofcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D755822F6317BAE802997 /* JoinKofcView.swift */; };
 		E5A0FC41029282CADF11B167 /* DuesPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071F317576E17C89FF6A171 /* DuesPaymentView.swift */; };
@@ -92,7 +95,10 @@
 		3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = KofC6650Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2BB380EDC518D6C253A271 /* QRCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
 		4BA41E6BCD451367BC7A7DFE /* GoogleCalendarAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPI.swift; sourceTree = "<group>"; };
+		4E83809CADDE878F935D20D3 /* CalendarViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewMode.swift; sourceTree = "<group>"; };
 		5071F317576E17C89FF6A171 /* DuesPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuesPaymentView.swift; sourceTree = "<group>"; };
+		5C69B1CF605B8EA0C8611B53 /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
+		5E950075319FCEDCB30FB4C6 /* MonthCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarView.swift; sourceTree = "<group>"; };
 		66683575D95351DD69FAAAD0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6A0DDE0C6361E4E0251DDCE8 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
 		71DAD1F53CA9BE74C22043DB /* PhotoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPI.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				5071F317576E17C89FF6A171 /* DuesPaymentView.swift */,
 				F5E94CD21ED5C997ED5747B9 /* EventCardView.swift */,
 				795D755822F6317BAE802997 /* JoinKofcView.swift */,
+				5E950075319FCEDCB30FB4C6 /* MonthCalendarView.swift */,
 				B5015F50D028F255FC15DA31 /* PaymentsTabView.swift */,
 				7D2530B70C6B50942159E8D8 /* PhotosTabView.swift */,
 				99A0505E0A6DC46E8D6B84B4 /* PinGateView.swift */,
@@ -184,6 +191,7 @@
 				3091BEE731F12BDB9CF6D005 /* AppearanceMode.swift */,
 				980B53EB0BB4324966B91EFB /* Assets.xcassets */,
 				DEA3EADB6D1D4B6BEFAB9AB8 /* CalendarExporter.swift */,
+				4E83809CADDE878F935D20D3 /* CalendarViewMode.swift */,
 				66683575D95351DD69FAAAD0 /* ContentView.swift */,
 				F6C8490C08C37078A2923246 /* EventDateFormatter.swift */,
 				796D7F7121AA8D2F353E38EA /* FontScale.swift */,
@@ -202,6 +210,7 @@
 				F829088B9FD335BCB34718A9 /* Networking */,
 				241902A8D4D4079BC27D2D10 /* Theme */,
 				27BA3A793017AE5F68084C95 /* Views */,
+				5C69B1CF605B8EA0C8611B53 /* HeightPreferenceKey.swift */,
 			);
 			path = KofC6650;
 			sourceTree = "<group>";
@@ -270,8 +279,6 @@
 				9F1DB99070410444F9A02F41 /* PBXTargetDependency */,
 			);
 			name = KofC6650;
-			packageProductDependencies = (
-			);
 			productName = KofC6650;
 			productReference = A1392280990F72A58F1C4D43 /* KofC6650.app */;
 			productType = "com.apple.product-type.application";
@@ -288,8 +295,6 @@
 				DAF6DD234453348C8399C972 /* PBXTargetDependency */,
 			);
 			name = KofC6650ScreenshotUITests;
-			packageProductDependencies = (
-			);
 			productName = KofC6650ScreenshotUITests;
 			productReference = 001973D37005048C00AB88CB /* KofC6650ScreenshotUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -305,8 +310,6 @@
 			dependencies = (
 			);
 			name = KofC6650Widget;
-			packageProductDependencies = (
-			);
 			productName = KofC6650Widget;
 			productReference = 3E249A5B14E2E44CD0255326 /* KofC6650Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -397,6 +400,7 @@
 				23E8F79510C13DC18256F3CA /* CalendarExporter.swift in Sources */,
 				4DFF0160CD24D48D6FF2DEFA /* CalendarModels.swift in Sources */,
 				FA754120F3328405B0D3EBA1 /* CalendarTabView.swift in Sources */,
+				CEF2781F2E53D0CFB7AE3F20 /* CalendarViewMode.swift in Sources */,
 				70965FFDB60B1A59A63170D3 /* Colors.swift in Sources */,
 				F4FFEDC9A41D0A3D47B00284 /* ContentView.swift in Sources */,
 				557444BE9188D2C530BAE027 /* DirectorsOfficersView.swift in Sources */,
@@ -410,6 +414,7 @@
 				2E94977B75B1876F51758462 /* KofC6650App.swift in Sources */,
 				7F38C9F84BC66C1A128BE7D0 /* KofcRepository.swift in Sources */,
 				933B4938AFB69284F7601A1F /* LeadershipModels.swift in Sources */,
+				20D18ED893413ED6A2760835 /* MonthCalendarView.swift in Sources */,
 				61D856B26FF8A59C656297EC /* NextEventInfo.swift in Sources */,
 				9AB0EFB952B7B18A80912BFC /* OfflineCache.swift in Sources */,
 				7E95F9B7FDFB6497E0DE4EE1 /* PayPalSubmitter.swift in Sources */,
@@ -425,6 +430,7 @@
 				A5B1A810BD54B94A04746E6C /* ScreenshotMode.swift in Sources */,
 				93295D4C07F7A4BD4F3A4E26 /* WhatsNew.swift in Sources */,
 				0AA9A61E084326C0239084C1 /* WhatsNewView.swift in Sources */,
+				DB485BC14A55DD8A1C2BB42C /* HeightPreferenceKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,17 @@ enum EventDateFormatter {
         return displayFormatter.string(from: date)
     }
 
+    /// UTC-anchored, matching isoDateFormatter -- for round-tripping a
+    /// Date (e.g. from calendar grid math) back to the "yyyy-MM-dd" form
+    /// event.date is stored in.
+    static func dateString(from date: Date) -> String {
+        isoDateFormatter.string(from: date)
+    }
+
+    static func date(from isoDateString: String) -> Date? {
+        isoDateFormatter.date(from: isoDateString)
+    }
+
     static func isTodayOrLater(_ isoDateString: String) -> Bool {
         guard let date = isoDateFormatter.date(from: isoDateString) else { return false }
         let todayString = isoDateFormatter.string(from: Date())

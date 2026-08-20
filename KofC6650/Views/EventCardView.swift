@@ -287,10 +287,11 @@ struct RsvpLegendView: View {
     var body: some View {
         HStack(spacing: 6) {
             Image(systemName: "star.fill")
-            Text("Tap the star to track events you've signed up for")
+            Text("Tap the star to track your events")
         }
         .font(.kofc(14, weight: .semibold))
         .foregroundColor(KofcColors.goldMuted)
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

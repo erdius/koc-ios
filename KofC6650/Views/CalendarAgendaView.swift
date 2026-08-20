@@ -6,6 +6,9 @@ struct CalendarAgendaView: View {
     let errorMessage: String?
     let onRefresh: () async -> Void
 
+    @ObservedObject private var viewMode = CalendarViewMode.shared
+    @State private var headerHeight: CGFloat = 0
+
     private var upcoming: [EventDto] {
         events
             .filter { EventDateFormatter.isTodayOrLater($0.date) }
@@ -19,29 +22,73 @@ struct CalendarAgendaView: View {
                     .tint(KofcColors.navy)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 12) {
-                        Text("Upcoming Events")
-                            .font(.kofc(18, weight: .semibold))
-                            .foregroundColor(KofcColors.onBackground)
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack(alignment: .leading, spacing: 12) {
+                            headerSection
+                                .id("header")
+                                .measureHeight(into: $headerHeight)
 
-                        RsvpLegendView()
+                            if let errorMessage {
+                                ErrorCardView(message: errorMessage)
+                            }
 
-                        if let errorMessage {
-                            ErrorCardView(message: errorMessage)
+                            if viewMode.mode == .month {
+                                MonthCalendarView(events: upcoming)
+                                    .id("grid")
+                                // Guarantees just enough scrollable room for
+                                // the auto-scroll-to-grid effect to fully
+                                // push the header out of view even when the
+                                // selected day's event list is short --
+                                // sized to the header's own measured height
+                                // rather than a full screen, so there's no
+                                // dead space to keep scrolling past.
+                                Color.clear.frame(height: headerHeight)
+                            } else {
+                                if errorMessage == nil && upcoming.isEmpty {
+                                    EmptyStateText(text: "No upcoming events on the calendar.")
+                                }
+
+                                EventListSections(events: upcoming)
+                            }
                         }
-
-                        if errorMessage == nil && upcoming.isEmpty {
-                            EmptyStateText(text: "No upcoming events on the calendar.")
-                        }
-
-                        EventListSections(events: upcoming)
+                        .padding(16)
                     }
-                    .padding(16)
+                    .refreshable { await onRefresh() }
+                    .onChange(of: viewMode.mode) { newMode in
+                        if newMode == .month {
+                            withAnimation {
+                                proxy.scrollTo("grid", anchor: .top)
+                            }
+                        }
+                    }
+                    .onChange(of: headerHeight) { _ in
+                        if viewMode.mode == .month {
+                            proxy.scrollTo("grid", anchor: .top)
+                        }
+                    }
+                    .onAppear {
+                        if viewMode.mode == .month {
+                            proxy.scrollTo("grid", anchor: .top)
+                        }
+                    }
                 }
-                .refreshable { await onRefresh() }
             }
         }
         .background(KofcColors.background)
+    }
+
+    private var headerSection: some View {
+        VStack(spacing: 8) {
+            Text("Upcoming Events")
+                .font(.kofcFixed(18, weight: .semibold))
+                .foregroundColor(KofcColors.onBackground)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+
+            CalendarViewModeToggle()
+
+            RsvpLegendView()
+        }
     }
 }
