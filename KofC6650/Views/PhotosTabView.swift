@@ -42,10 +42,18 @@ struct PhotosTabView: View {
                         .foregroundColor(KofcColors.helpText)
 
                     TextField("Your name (optional)", text: $name)
-                        .textFieldStyle(.roundedBorder)
+                        .textFieldStyle(.plain)
+                        .padding(10)
+                        .foregroundColor(KofcColors.onSurfaceVariant)
+                        .background(KofcColors.surfaceVariant)
+                        .cornerRadius(8)
 
                     TextField("Caption (optional)", text: $caption)
-                        .textFieldStyle(.roundedBorder)
+                        .textFieldStyle(.plain)
+                        .padding(10)
+                        .foregroundColor(KofcColors.onSurfaceVariant)
+                        .background(KofcColors.surfaceVariant)
+                        .cornerRadius(8)
 
                     PhotosPicker(
                         selection: $selectedItems,

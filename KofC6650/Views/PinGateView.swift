@@ -35,7 +35,11 @@ struct PinGateView: View {
 
             SecureField("Council PIN", text: $pinInput)
                 .keyboardType(.numberPad)
-                .textFieldStyle(.roundedBorder)
+                .textFieldStyle(.plain)
+                .padding(10)
+                .foregroundColor(KofcColors.onSurfaceVariant)
+                .background(KofcColors.surfaceVariant)
+                .cornerRadius(8)
                 .frame(maxWidth: 200)
                 .multilineTextAlignment(.center)
                 .onChange(of: pinInput) { newValue in

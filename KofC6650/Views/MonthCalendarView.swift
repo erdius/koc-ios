@@ -112,7 +112,7 @@ struct MonthCalendarView: View {
             .font(.kofc(13, weight: .semibold))
             .padding(.leading, 12)
         }
-        .foregroundColor(KofcColors.navy)
+        .foregroundColor(KofcColors.onSurface)
     }
 
     private var weekdayRow: some View {
